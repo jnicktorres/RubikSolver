@@ -14,3 +14,30 @@ class RotateTest(TestCase):
         self.assertIn('status', result)
         self.assertEqual('ok', result['status'])
         self.assertEqual(encodedCube, result.get('cube'))
+    
+    def test_rotate_validateCube_lessThan54(self):
+        encodedCube = 'bbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = rotate(parms)
+        self.assertIn('status', result)
+        self.assertEqual('error', result['status'])
+        self.assertEqual(encodedCube, result.get('cube'))
+        
+    def test_rotate_validateCube_UniqueNumbers(self):
+        encodedCube = 'bbbbbbbbbrrrrrrrrroooooooo1ggggggggyyyyyyyyy1111111111'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = rotate(parms)
+        self.assertIn('status', result)
+        self.assertEqual('error', result['status'])
+        self.assertEqual(encodedCube, result.get('cube'))    
+
+    def test_rotate_validateCube_UniqueCenters(self):
+        encodedCube = 'bbbbbbbbbrrrrrrrrrooboooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = rotate(parms)
+        self.assertIn('status', result)
+        self.assertEqual('error', result['status'])
+        self.assertEqual(encodedCube, result.get('cube'))    
