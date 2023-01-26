@@ -15,14 +15,14 @@ def rotate(parms):
     centers = [4,13,22,31,40,49]
     
     if theCube.get() == 'None': 
-        result['status'] = 'error'
+        result['status'] = 'error: 123'
         return result
     
     
     if theCube.get() != 'None': 
         
         if len(theCube.get()) != 54 or theCube.get().isalnum() == False:
-            result['status'] = 'error'
+            result['status'] = 'error: 123'
             return result
                
         #Checks to see if there are no more than 6 unique numbers in string
@@ -31,21 +31,37 @@ def rotate(parms):
                 checkUnique[letter] = 1
                 
         if len(checkUnique) != 6:
-            result['status'] = 'error' 
+            result['status'] = 'error: 123' 
             return result
         
-            
+        #Checks centers to see if they are unique
         for num in centers:
-            if theCube.get()[num] in checkCenter.keys():
-                result['status'] = 'error'
-                return result
-            else:
+            if theCube.get()[num] not in checkCenter.keys():
                 checkCenter[theCube.get()[num]] = 1
-                 
-        
                 
-    #directions = parms.get('dir')
-    #theCube.rotate(directions)
+        if len(checkCenter) != 6:
+            result['status'] = 'error: 123' 
+            return result      
+     
+     
+    #part to validate cube directions
+    dirs = ['F','f','R','r', 'B','b', 'L','l','U','u']               
+    directions = parms.get('dir')
     
-    result['status'] = 'ok'                     
+    if len(directions) == 0:
+        #if directions are missing then set to F
+        theCube.rotate('F')
+         
+    else:       
+        #iterate through directions and see if they are valid
+        for i in directions:
+            if i not in dirs:
+                result['status'] = 'error: 123' 
+                return result     
+    
+    
+    
+    theCube.rotate(directions)
+    result['status'] = 'ok' 
+                        
     return result
