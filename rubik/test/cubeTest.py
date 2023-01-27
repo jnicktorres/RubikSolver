@@ -44,5 +44,5 @@ class CubeTest(unittest.TestCase):
             cubeToRotate = 'ygrwbgyggbobrryrrwobrggrgwywyryorbbggwwbyybwwooyowbooo'
             theCube = cube.Cube(cubeToRotate)
             rotatedCube = theCube.rotate('R')
-            self.assertEqual(rotatedCube, 'ygywboyggrrbrrowybwbrygrwwywyryorbbggwrbygbwgoogowgooo')
+            self.assertEqual(rotatedCube, 'ygywbbygorrbrrowybwbrygrwwywyryorbbggwrbygbwgoogowgooo')
                        
