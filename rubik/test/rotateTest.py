@@ -48,7 +48,7 @@ class RotateTest(TestCase):
         self.assertEqual(encodedCube, result.get('cube')) 
         
 #test to see if missing direction will set to F
-#Should pass            
+        
     def test_rotate_validateCube_MissingDirection(self):
         encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
         parms = {}
