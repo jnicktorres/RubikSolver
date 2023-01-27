@@ -18,14 +18,15 @@ class Cube:
         rotatedCubeList[FTL] = cubeList[FTR]
         rotatedCubeList[FML] = cubeList[FTM]
         rotatedCubeList[FBL] = cubeList[FTL]
+        
         rotatedCubeList[FTM] = cubeList[FMR]
         rotatedCubeList[FMM] = cubeList[FMM]
         rotatedCubeList[FBM] = cubeList[FML]
         
         
-        rotatedCubeList[FTR] = cubeList[FBL]
-        rotatedCubeList[FMR] = cubeList[FTM]
-        rotatedCubeList[FBR] = cubeList[FTR]
+        rotatedCubeList[FTR] = cubeList[FBR]
+        rotatedCubeList[FMR] = cubeList[FBM]
+        rotatedCubeList[FBR] = cubeList[FBL]
         
         #rotate up to right
         rotatedCubeList[RTL] = cubeList[UBL]
