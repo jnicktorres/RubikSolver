@@ -9,16 +9,7 @@ class Cube:
         
     def rotate(self, directions):
         
-        #self._rotateF()  
-        #self._rotatef()
-        #self._rotateR()
-        #self._rotater()
-        #self._rotateB()
-        #self._rotateb()
-        #self._rotateL()
-        #self._rotatel()
-        #self._rotateU()
-        self._rotateu()
+        
         return self.cube
         
         
