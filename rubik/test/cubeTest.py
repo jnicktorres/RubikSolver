@@ -28,11 +28,11 @@ class CubeTest(unittest.TestCase):
     #                raise DirException
     
     
-        #------------------------------ def test_rotate_010_ShouldRotate (self):
-            # cubeToRotate = 'ygrwbgyggbobrryrrwobrggrgwywyryorbbggwwbyybwwooyowbooo'
-            #--------------------------------- theCube = cube.Cube(cubeToRotate)
-            #--------------------------------- rotatedCube = theCube.rotate('F')
-            # self.assertEqual(rotatedCube, 'ywygbgggrbobwrywrwobrggrgwywyoyoobbygwwbyygrrrrbowbooo')
+        def test_rotate_010_ShouldRotate (self):
+             cubeToRotate = 'ygrwbgyggbobrryrrwobrggrgwywyryorbbggwwbyybwwooyowbooo'
+            theCube = cube.Cube(cubeToRotate)
+            rotatedCube = theCube.rotate('F')
+             self.assertEqual(rotatedCube, 'ywygbgggrbobwrywrwobrggrgwywyoyoobbygwwbyygrrrrbowbooo')
             
         def test_rotate_020_ShouldRotate (self):
             cubeToRotate = 'ygrwbgyggbobrryrrwobrggrgwywyryorbbggwwbyybwwooyowbooo'
