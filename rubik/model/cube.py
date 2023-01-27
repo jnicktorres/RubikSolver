@@ -46,7 +46,7 @@ class Cube:
         rotatedCubeList[UBR] = cubeList[LTR]
         rotatedCubeList[UBM] = cubeList[LMR]
         rotatedCubeList[UBL] = cubeList[LBR]
-        self._cube = "".join(rotatedCubeList)
+        self.cube = "".join(rotatedCubeList)
         return self.cube
         
         
