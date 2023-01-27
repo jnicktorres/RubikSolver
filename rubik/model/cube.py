@@ -103,7 +103,7 @@ class Cube:
         rotatedCubeList[DTR] = cubeList[BBL]
         rotatedCubeList[DMR] = cubeList[BML]
         rotatedCubeList[DBR] = cubeList[BTL]
-        #rotate bottom to left
+        #rotate bottom to left  
         rotatedCubeList[FTR] = cubeList[DTR]
         rotatedCubeList[FMR] = cubeList[DMR]
         rotatedCubeList[FBR] = cubeList[DBR]
