@@ -15,6 +15,36 @@ class Cube:
         #self._rotater()
         #self._rotateB()
         
+        cubeList = list(self.cube)
+        rotatedCubeList = cubeList[:]
+        #rotate back face
+        rotatedCubeList[BTL] = cubeList[BTR]
+        rotatedCubeList[BTM] = cubeList[BMR]
+        rotatedCubeList[BTR] = cubeList[BBL]        
+        rotatedCubeList[BML] = cubeList[BTM]
+        rotatedCubeList[BMM] = cubeList[BMM]
+        rotatedCubeList[BMR] = cubeList[BBM]
+        rotatedCubeList[BBL] = cubeList[BTL]
+        rotatedCubeList[BBM] = cubeList[BML]
+        rotatedCubeList[BBR] = cubeList[BBL]
+        #rotate up to right
+        rotatedCubeList[RTR] = cubeList[UTL]
+        rotatedCubeList[RMR] = cubeList[UTM]
+        rotatedCubeList[RBR] = cubeList[UTR]
+        #rotate bottom to left
+        rotatedCubeList[FBR] = cubeList[RTR]
+        rotatedCubeList[FBM] = cubeList[RMR]
+        rotatedCubeList[FBL] = cubeList[RBR]
+        #rotate right to bottom
+        rotatedCubeList[DBL] = cubeList[LTL]
+        rotatedCubeList[DBM] = cubeList[LML]
+        rotatedCubeList[DBR] = cubeList[LBL]
+        #rotate left to top
+        rotatedCubeList[RTR] = cubeList[DBR]
+        rotatedCubeList[RMR] = cubeList[DBM]
+        rotatedCubeList[RBR] = cubeList[DBL]
+        self.cube = "".join(rotatedCubeList)
+        
         return self.cube
         
         
