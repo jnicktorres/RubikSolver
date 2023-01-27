@@ -17,6 +17,35 @@ class Cube:
         #self._rotateb()
         #self._rotateL()
         
+        cubeList = list(self.cube)
+        rotatedCubeList = cubeList[:]
+        #rotate left face  
+        rotatedCubeList[LTL] = cubeList[LTR]
+        rotatedCubeList[LTM] = cubeList[LMR]
+        rotatedCubeList[LTR] = cubeList[LBR]    
+        rotatedCubeList[LML] = cubeList[LTM]
+        rotatedCubeList[LMM] = cubeList[LMM]
+        rotatedCubeList[LMR] = cubeList[LBM]
+        rotatedCubeList[LBL] = cubeList[LTL]
+        rotatedCubeList[LBM] = cubeList[LML]
+        rotatedCubeList[LBR] = cubeList[LBL]      
+        #rotate up to right
+        rotatedCubeList[FTL] = cubeList[DTL]
+        rotatedCubeList[FML] = cubeList[DML]
+        rotatedCubeList[FBL] = cubeList[DBL]        
+        #rotate bottom to left        
+        rotatedCubeList[DTL] = cubeList[BBR]
+        rotatedCubeList[DML] = cubeList[BMR]
+        rotatedCubeList[DBL] = cubeList[BTR]
+        #rotate right to bottom       
+        rotatedCubeList[BTR] = cubeList[UBL]
+        rotatedCubeList[BMR] = cubeList[UML]
+        rotatedCubeList[BBR] = cubeList[UTL]        
+        #rotate left to top
+        rotatedCubeList[UTL] = cubeList[FTL]
+        rotatedCubeList[UML] = cubeList[FML]
+        rotatedCubeList[UBL] = cubeList[FBL]
+        self.cube = "".join(rotatedCubeList)
         return self.cube
         
         
@@ -26,7 +55,7 @@ class Cube:
     def _rotateF(self):
         cubeList = list(self.cube)
         rotatedCubeList = cubeList[:]
-        #rotate front face       
+        #rotate left face       
         rotatedCubeList[FTR] = cubeList[FTL]
         rotatedCubeList[FMR] = cubeList[FTM]
         rotatedCubeList[FBR] = cubeList[FTR]
@@ -212,7 +241,7 @@ class Cube:
     def _rotateL(self):
         cubeList = list(self.cube)
         rotatedCubeList = cubeList[:]
-    #rotate back face
+    #rotate left face
         rotatedCubeList[LTL] = cubeList[LBL]
         rotatedCubeList[LML] = cubeList[LBM]
         rotatedCubeList[LBL] = cubeList[LBR]
