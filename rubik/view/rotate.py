@@ -9,6 +9,9 @@ def rotate(parms):
 
 
 
+
+    #
+    ###### This part of the code is used to validate that cube is has correct colors and directions    ######
     result['cube'] = theCube.get()
     checkUnique = {}
     checkCenter = {}
@@ -50,7 +53,7 @@ def rotate(parms):
     
     if len(directions) == 0:
         #if directions are missing then set to F
-        theCube.rotate('F')
+        theCube.rotateF()
          
     else:       
         #iterate through directions and see if they are valid
@@ -59,8 +62,10 @@ def rotate(parms):
                 result['status'] = 'error: 123' 
                 return result     
     
-    
-    
+    result['status'] = 'ok' 
+ #######################################################################################################   
+ 
+ 
     theCube.rotate(directions)
     result['status'] = 'ok' 
                         
