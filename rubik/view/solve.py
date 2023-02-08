@@ -13,6 +13,11 @@ def solve(parms):
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
     
+    
+    
+    
+    
+    
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
     rotations += solveBottomLayer(theCube)      #iteration 3
