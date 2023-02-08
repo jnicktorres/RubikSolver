@@ -9,6 +9,29 @@ class Cube:
         
     def rotate(self, directions):
         
+        # iterate through each direction and find corresponding rotation
+        for i in directions:
+            if i == 'F':
+                self._rotateF()
+            elif i == 'f':
+                self._rotatef()
+            elif i == 'R':
+                self._rotateR()
+            elif i == 'r':
+                self._rotater()
+            elif i == 'B':
+                self._rotateB()
+            elif i == 'b':
+                self._rotateb()
+            elif i == 'L':
+                self._rotateL()
+            elif i == 'l':
+                self._rotatel()
+            elif i == 'U':
+                self._rotateU()
+            elif i == 'u':
+                self._rotateu()
+            
         
         return self.cube
         

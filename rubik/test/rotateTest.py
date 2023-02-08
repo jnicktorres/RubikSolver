@@ -11,9 +11,8 @@ class RotateTest(TestCase):
         parms['cube'] = encodedCube
         parms['dir'] = 'F'
         result = rotate(parms)
-        self.assertIn('status', result)
         self.assertEqual('ok', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))
+        self.assertEqual('bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww', result.get('cube'))
 
 #test that less than 54 characters in cube    
 
@@ -22,9 +21,8 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertIn('status', result)
-        self.assertEqual('error: 123', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))
+        self.assertEqual('error: 123', result)
+    
         
 #test if more or less than 6 unique Values in cube            
     def test130_rotate_validateCube_UniqueValue(self):
@@ -32,9 +30,8 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertIn('status', result)
-        self.assertEqual('error: 123', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))    
+        self.assertEqual('error: 123', result)
+          
 
 #test if more or less than 6 unique Values in Center index of cube
  
@@ -43,9 +40,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertIn('status', result)
-        self.assertEqual('error: 123', result['status'])
-        self.assertEqual(encodedCube, result.get('cube')) 
+        self.assertEqual('error: 123', result)
         
 #test to see if missing direction will set to F
         
@@ -66,6 +61,4 @@ class RotateTest(TestCase):
         parms['cube'] = encodedCube
         parms['dir'] = 'FbLZ'
         result = rotate(parms)
-        self.assertIn('status', result)
-        self.assertEqual('error: 123', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))
+        self.assertEqual('error: 123', result)
