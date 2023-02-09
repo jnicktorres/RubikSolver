@@ -24,5 +24,12 @@ class SolveTest(TestCase):
         result = solve(parms)
         self.assertEqual('error: 123', result)
     
+    #test that less than 54 characters in cube    
+    def test120_solve_validateCube_lessThan54(self):
+        encodedCube = 'bbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = solve(parms)
+        self.assertEqual('error: 123', result)
         
     
