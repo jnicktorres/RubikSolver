@@ -14,10 +14,11 @@ def solve(parms):
     theCube = Cube(encodedCube)
     
     
-    
-    
-    
-    
+    if parms.get('cube') == None: 
+        result['status'] = 'error: 123'
+        return result['status']
+        
+        
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
     rotations += solveBottomLayer(theCube)      #iteration 3
@@ -27,7 +28,7 @@ def solve(parms):
     rotations += solveUpperLayer(theCube)       #iteration 6
     
     result['solution'] = rotations
-    result['status'] = 'ok'    
+    result['status'] = 'ok'  
     result['integrity'] = ''                    #iteration 3
                      
     return result
