@@ -17,7 +17,12 @@ def solve(parms):
     if parms.get('cube') == None: 
         result['status'] = 'error: 123'
         return result['status']
+    
+    if parms.get('cube') != None: 
         
+        if len(theCube.get()) != 54:
+            result['status'] = 'error: 123'
+            return result['status']    
         
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
