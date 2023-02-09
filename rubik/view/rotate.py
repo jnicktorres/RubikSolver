@@ -11,7 +11,8 @@ def rotate(parms):
 
 
     
-    ###### This part of the code is used to validate that cube is has correct colors and directions    ######
+########### This part of the code is used to validate that cube is has correct colors and directions    ######
+
     result['cube'] = theCube.get()
     checkUnique = {}
     checkCenter = {}

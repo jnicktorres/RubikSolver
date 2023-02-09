@@ -13,6 +13,11 @@ def solve(parms):
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
     
+########### This part of the code is used to validate that cube is has correct colors ######   
+    result['cube'] = theCube.get()
+    checkUnique = {}
+    checkCenter = {}
+    centers = [4,13,22,31,40,49]
     
     if parms.get('cube') == None: 
         result['status'] = 'error: 123'
@@ -24,6 +29,23 @@ def solve(parms):
             result['status'] = 'error: 123'
             return result['status']    
         
+        #Checks to see if there are no more than 6 unique numbers in string
+        for letter in theCube.get():
+            if letter not in checkUnique.keys():
+                checkUnique[letter] = 1
+            else:
+                checkUnique[letter] = checkUnique[letter] + 1
+        
+        for key in checkUnique:
+            if checkUnique[key] != 9:
+                result['status'] = 'error: 123' 
+                return result['status']
+                    
+        if len(checkUnique) != 6:
+            result['status'] = 'error: 123' 
+            return result['status']
+        
+#################################################################################################       
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
     rotations += solveBottomLayer(theCube)      #iteration 3

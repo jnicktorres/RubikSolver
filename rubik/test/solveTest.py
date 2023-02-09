@@ -47,4 +47,4 @@ class SolveTest(TestCase):
         parms['cube'] = encodedCube
         result = solve(parms)
         self.assertEqual('error: 123', result)
-              
+    
