@@ -54,3 +54,10 @@ class SolveTest(TestCase):
         parms['cube'] = encodedCube
         result = solve(parms)
         self.assertEqual('error: 123', result)
+    
+    def test160_solve_CorrectRotations(self):
+        encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = solve(parms)
+        self.assertEqual('lfrbuFFRRBBLL', result['solution'])
