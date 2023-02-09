@@ -45,6 +45,14 @@ def solve(parms):
             result['status'] = 'error: 123' 
             return result['status']
         
+        for num in centers:
+            if theCube.get()[num] not in checkCenter.keys():
+                checkCenter[theCube.get()[num]] = 1
+                
+        if len(checkCenter) != 6:
+            result['status'] = 'error: 123' 
+            return result['status']
+        
 #################################################################################################       
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
