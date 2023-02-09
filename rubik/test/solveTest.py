@@ -39,3 +39,12 @@ class SolveTest(TestCase):
         parms['cube'] = encodedCube
         result = solve(parms)
         self.assertEqual('error: 123', result)
+        
+    #test if more or less than 6 unique Values in cube            
+    def test130_solve_validateCube_UniqueValue(self):
+        encodedCube = 'bbbbbbbbbrrrrrrrrroooooooo1ggggggggyyyyyyyyy1111111112'
+        parms = {}
+        parms['cube'] = encodedCube
+        result = solve(parms)
+        self.assertEqual('error: 123', result)
+              
