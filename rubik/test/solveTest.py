@@ -33,7 +33,7 @@ class SolveTest(TestCase):
         self.assertEqual('error: 123', result)
         
     #test if invalid characters in cube          
-    def test130_rotate_validateCube_UniqueValue(self):
+    def test130_solve_validateCube_invalidValue(self):
         encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyy;;;;;;;;;'
         parms = {}
         parms['cube'] = encodedCube

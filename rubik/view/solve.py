@@ -20,7 +20,7 @@ def solve(parms):
     
     if parms.get('cube') != None: 
         
-        if len(theCube.get()) != 54:
+        if len(theCube.get()) != 54 or theCube.get().isalnum() == False:
             result['status'] = 'error: 123'
             return result['status']    
         
