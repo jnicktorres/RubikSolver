@@ -1,21 +1,11 @@
 from unittest import TestCase
 from rubik.view.solve import solve
+from rubik.view.rotate import rotate
  
 
 class SolveTest(TestCase):
         
-# Happy path
-#    Test that the stubbed solve returns the correct result
-    def test100_solve_returnStubbedSolution(self):
-        parms = {}
-        parms['cube'] = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
-        result = solve(parms)
-        self.assertIn('status', result)
-        self.assertEqual('ok', result['status'])
-        self.assertIn('integrity', result)
-        self.assertEqual('FRBLUD', result.get('solution'))
     
-
     #test if cube is missing    
     def test110_solve_validateCube_missingCube(self):
         encodedCube = None 
@@ -55,9 +45,18 @@ class SolveTest(TestCase):
         result = solve(parms)
         self.assertEqual('error: 123', result)
     
-    def test160_solve_CorrectRotations(self):
+    def test160_solve_cross(self):
         encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
         parms = {}
         parms['cube'] = encodedCube
-        result = solve(parms)
-        self.assertEqual('lfrbuFFRRBBLL', result['solution'])
+        dirs = solve(parms)
+        parms['dir'] = dirs['solution']
+        result = rotate(parms)
+        self.assertEqual('w', result.get('cube')[46])
+        self.assertEqual('w', result.get('cube')[48])
+        self.assertEqual('w', result.get('cube')[50])
+        self.assertEqual('w', result.get('cube')[52])
+        self.assertEqual(result.get('cube')[4], result.get('cube')[7])
+        self.assertEqual(result.get('cube')[13], result.get('cube')[16])
+        self.assertEqual(result.get('cube')[22], result.get('cube')[25])
+        self.assertEqual(result.get('cube')[31], result.get('cube')[34])
