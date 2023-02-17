@@ -12,7 +12,7 @@ def solveBottomCross(theCube: Cube) -> str:
         output: the rotations required to transform the input cube into the down-face cross 
     '''
     
-    #Variables
+    #### Variables
     
     fakeCube = theCube
     matchcol = fakeCube.get()[49] # color to be matched
@@ -153,7 +153,7 @@ def solveBottomCross(theCube: Cube) -> str:
             
         
        
-    # FLIP DAISY TO BOTTOM
+    ###################### FLIP DAISY TO BOTTOM
         
     #flips front face
     while fakeCube.get()[1] != frontCenterColor or fakeCube.get()[43] != matchcol:
@@ -187,6 +187,6 @@ def solveBottomCross(theCube: Cube) -> str:
     fakeCube._rotateL()
     fakeCube._rotateL()
     result += 'LL'        
-                
+    ##############################               
                  
     return result 

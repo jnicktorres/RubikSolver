@@ -38,6 +38,7 @@ class SolveTest(TestCase):
         result = solve(parms)
         self.assertEqual('error: 123', result)
         
+    #test to make sure cube has unique center values
     def test150_solve_validateCube_UniqueCenters(self):
         encodedCube = 'bbbbbbbborrrrrrrrroooobooogggggggggyyyyyyyyywwwwwwwww'
         parms = {}
@@ -45,6 +46,7 @@ class SolveTest(TestCase):
         result = solve(parms)
         self.assertEqual('error: 123', result)
     
+    # tests to see if cross is created after rotate
     def test160_solve_cross(self):
         encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
         parms = {}
