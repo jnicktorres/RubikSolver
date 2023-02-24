@@ -72,7 +72,7 @@ def rotate(parms):
     
    
 #######################################################################################################   
-    result['cube'] = theCube.get()
+    
     result['status'] = 'ok' 
     result['cube'] = theCube.rotate(directions)
     
