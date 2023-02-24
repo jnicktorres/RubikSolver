@@ -13,7 +13,7 @@ def rotate(parms):
     
 ########### This part of the code is used to validate that cube is has correct colors and directions    ######
 
-    result['cube'] = theCube.get()
+    
     checkUnique = {}
     checkCenter = {}
     centers = [4,13,22,31,40,49]
@@ -27,7 +27,7 @@ def rotate(parms):
         
         if len(theCube.get()) != 54 or theCube.get().isalnum() == False:
             result['status'] = 'error: 123'
-            return result['status']
+            return result
                
         #Checks to see if there are no more than 6 unique numbers in string
         for letter in theCube.get():
@@ -40,11 +40,11 @@ def rotate(parms):
         for key in checkUnique:
             if checkUnique[key] != 9:
                 result['status'] = 'error: 123' 
-                return result['status']
+                return result
                     
         if len(checkUnique) != 6:
             result['status'] = 'error: 123' 
-            return result['status']
+            return result
         
         #Checks centers to see if they are unique
         for num in centers:
@@ -53,7 +53,7 @@ def rotate(parms):
                 
         if len(checkCenter) != 6:
             result['status'] = 'error: 123' 
-            return result['status']     
+            return result     
      
      
     #part to validate cube directions
@@ -69,11 +69,11 @@ def rotate(parms):
         for i in directions:
             if i not in dirs:
                 result['status'] = 'error: 123' 
-                return result['status']     
+                return result    
     
    
 #######################################################################################################   
- 
+    result['cube'] = theCube.get()
     result['status'] = 'ok' 
     result['cube'] = theCube.rotate(directions)
     

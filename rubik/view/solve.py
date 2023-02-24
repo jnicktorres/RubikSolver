@@ -14,7 +14,6 @@ def solve(parms):
     theCube = Cube(encodedCube)
     
 ########### This part of the code is used to validate that cube is has correct colors ######   
-    result['cube'] = theCube.get()
     checkUnique = {}
     checkCenter = {}
     centers = [4,13,22,31,40,49]
