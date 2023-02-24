@@ -13,14 +13,13 @@ def rotate(parms):
     
 ########### This part of the code is used to validate that cube is has correct colors and directions    ######
 
-    
     checkUnique = {}
     checkCenter = {}
     centers = [4,13,22,31,40,49]
     
     if parms.get('cube') == None: 
         result['status'] = 'error: 123'
-        return result['status']
+        return result
     
     
     if parms.get('cube') != None: 
@@ -57,7 +56,7 @@ def rotate(parms):
      
      
     #part to validate cube directions
-    dirs = ['F','f','R','r', 'B','b', 'L','l','U','u','D','d']               
+    dirs = ['F','f','R','r', 'B','b', 'L','l','U','u']               
     directions = parms.get('dir')
     
     if directions == None:
@@ -69,7 +68,7 @@ def rotate(parms):
         for i in directions:
             if i not in dirs:
                 result['status'] = 'error: 123' 
-                return result    
+                return result
     
    
 #######################################################################################################   
