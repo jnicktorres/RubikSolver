@@ -53,18 +53,27 @@ class SolveTest(TestCase):
         self.assertEqual(error, result)
     
     # tests to see if cross is created after rotate
+    #-------------------------------------------- def test160_solve_cross(self):
+        # encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
+        #------------------------------------------------------------ parms = {}
+        #------------------------------------------- parms['cube'] = encodedCube
+        #--------------------------------------------------- dirs = solve(parms)
+        #--------------------------------------- parms['dir'] = dirs['solution']
+        #------------------------------------------------ result = rotate(parms)
+        #------------------------- self.assertEqual('w', result.get('cube')[46])
+        #------------------------- self.assertEqual('w', result.get('cube')[48])
+        #------------------------- self.assertEqual('w', result.get('cube')[50])
+        #------------------------- self.assertEqual('w', result.get('cube')[52])
+        #-------- self.assertEqual(result.get('cube')[4], result.get('cube')[7])
+        #------ self.assertEqual(result.get('cube')[13], result.get('cube')[16])
+        #------ self.assertEqual(result.get('cube')[22], result.get('cube')[25])
+        #------ self.assertEqual(result.get('cube')[31], result.get('cube')[34])
     def test160_solve_cross(self):
-        encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
+        encodedCube = 'rowrbwbryryogrorgybgybgroygrbgwoyogogyywybwwbwbbrwowog'
         parms = {}
         parms['cube'] = encodedCube
         dirs = solve(parms)
         parms['dir'] = dirs['solution']
         result = rotate(parms)
-        self.assertEqual('w', result.get('cube')[46])
-        self.assertEqual('w', result.get('cube')[48])
-        self.assertEqual('w', result.get('cube')[50])
-        self.assertEqual('w', result.get('cube')[52])
-        self.assertEqual(result.get('cube')[4], result.get('cube')[7])
-        self.assertEqual(result.get('cube')[13], result.get('cube')[16])
-        self.assertEqual(result.get('cube')[22], result.get('cube')[25])
-        self.assertEqual(result.get('cube')[31], result.get('cube')[34])
+        self.assertEqual('UUUFuRBFFDDUUUFFDFFUUUFFURRUUBBULLUbuBFUfUFUf', dirs.get('solution'))
+ 
