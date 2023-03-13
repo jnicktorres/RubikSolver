@@ -53,17 +53,9 @@ def solve(parms):
         if len(checkCenter) != 6:
             result['status'] = 'error: 123' 
             return result
-#################################################################################################       
+#################################################################################################     
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
-    
-    parms['dirs'] = rotations
-    print(parms)
-    print(theCube.get())
-    result = rotate(parms)
-    print(theCube.get())
-    theCube = Cube(result.get('cube'))
-    
     rotations += solveBottomLayer(theCube)      #iteration 3
     # rotations += solveMiddleLayer(theCube)      #iteration 4
     # rotations += solveUpCross(theCube)          #iteration 5

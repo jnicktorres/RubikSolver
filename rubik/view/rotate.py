@@ -56,7 +56,7 @@ def rotate(parms):
      
      
     #part to validate cube directions
-    dirs = ['F','f','R','r', 'B','b', 'L','l','U','u']               
+    dirs = ['F','f','R','r', 'B','b', 'L','l','U','u', 'D', 'd']               
     directions = parms.get('dir')
     
     if directions == None:

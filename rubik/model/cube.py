@@ -162,7 +162,7 @@ class Cube:
         rotatedCubeList[BBL] = cubeList[DTR]
         #rotate left to bottom
         rotatedCubeList[DTR] = cubeList[FTR]
-        rotatedCubeList[DMR] = cubeList[FTM]
+        rotatedCubeList[DMR] = cubeList[FMR]
         rotatedCubeList[DBR] = cubeList[FBR]
         #rotate right to top
         rotatedCubeList[UTR] = cubeList[BBL]
@@ -375,7 +375,7 @@ class Cube:
         rotatedCubeList[DBM] = cubeList[DMR]              
         rotatedCubeList[DTL] = cubeList[DBL]
         rotatedCubeList[DML] = cubeList[DBM]
-        rotatedCubeList[DBL] = cubeList[DBM]       
+        rotatedCubeList[DBL] = cubeList[DBR]       
         #rotate up to right
         rotatedCubeList[RBL] = cubeList[FBL]
         rotatedCubeList[RBM] = cubeList[FBM]
