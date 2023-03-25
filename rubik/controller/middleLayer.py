@@ -11,12 +11,10 @@ def solveMiddleLayer(theCube: Cube) -> str:
     '''  
     #### Variables  
     fakeCube = theCube
-    matchcol = fakeCube.get()[40] # color to be matched
-    result = ""
-   
     result = ''
     count = 0
     x = 0
+    
     while count < 4:
         
         #Check to see if we have any incorrect tiles, and if we do correct them
