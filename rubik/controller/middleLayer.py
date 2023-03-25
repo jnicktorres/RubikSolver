@@ -173,5 +173,4 @@ def solveMiddleLayer(theCube: Cube) -> str:
         
         
         count+= 1
-    print(result)
     return result      #TODO:  remove this stubbed value
