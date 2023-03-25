@@ -13,15 +13,68 @@ def solveMiddleLayer(theCube: Cube) -> str:
     fakeCube = theCube
     matchcol = fakeCube.get()[40] # color to be matched
     result = ""
-    centers = [4,13,22,31]
-    rightcorn = [2,11, 20,29]
-    leftcorn = [0,9, 18,27]
-    topcorn = [36,38,42,44]
+   
     result = ''
     count = 0
     x = 0
     while count < 4:
-        while x < 3:
+        
+        #Check to see if we have any incorrect tiles, and if we do correct them
+        
+        if not (fakeCube.get()[5] in [fakeCube.get()[4], fakeCube.get()[40]]) and not (fakeCube.get()[12] in [fakeCube.get()[13],fakeCube.get()[40]]):
+            result+= 'URurufUF'
+            fakeCube._rotateU()
+            fakeCube._rotateR()
+            fakeCube._rotateu()
+            fakeCube._rotater()
+            fakeCube._rotateu()
+            fakeCube._rotatef()
+            fakeCube._rotateU()
+            fakeCube._rotateF()
+              
+        if not(fakeCube.get()[14] in [fakeCube.get()[13],fakeCube.get()[40]]) and not (fakeCube.get()[21] in [fakeCube.get()[22], fakeCube.get()[40]]):
+            result += 'UBuburUR'
+            fakeCube._rotateU()
+            fakeCube._rotateB()
+            fakeCube._rotateu()
+            fakeCube._rotateb()
+            fakeCube._rotateu()
+            fakeCube._rotater()
+            fakeCube._rotateU()
+            fakeCube._rotateR()
+            
+        if not (fakeCube.get()[23] in [fakeCube.get()[22],fakeCube.get()[40]]) and not (fakeCube.get()[30] in [fakeCube.get()[31], fakeCube.get()[40]]):
+            result += 'ULulubUB'
+            fakeCube._rotateU()
+            fakeCube._rotateL()
+            fakeCube._rotateu()
+            fakeCube._rotatel()
+            fakeCube._rotateu()
+            fakeCube._rotateb()
+            fakeCube._rotateU()
+            fakeCube._rotateB()
+            
+        if not(fakeCube.get()[32] in [fakeCube.get()[31],fakeCube.get()[40]]) and not (fakeCube.get()[3] in [fakeCube.get()[4],fakeCube.get()[40]]):
+            result += 'UFufulUL'
+            fakeCube._rotateU()
+            fakeCube._rotateF()
+            fakeCube._rotateu()
+            fakeCube._rotatef()
+            fakeCube._rotateu()
+            fakeCube._rotatel()
+            fakeCube._rotateU()
+            fakeCube._rotateL()   
+        
+        #Do a check to see if we already have middle layer
+        if(fakeCube.get()[45] == 'w' and fakeCube.get()[46] == 'w' and fakeCube.get()[47] == 'w' and fakeCube.get()[48] == 'w' and fakeCube.get()[50] == 'w' and fakeCube.get()[51] == 'w' and fakeCube.get()[52] == 'w' and fakeCube.get()[53] == 'w'):
+            if(fakeCube.get()[3] == fakeCube.get()[4] and fakeCube.get()[5] == fakeCube.get()[4] and fakeCube.get()[6] == fakeCube.get()[4] and fakeCube.get()[7] == fakeCube.get()[4] and fakeCube.get()[8] == fakeCube.get()[4]):
+                if(fakeCube.get()[12] == fakeCube.get()[13] and fakeCube.get()[14] == fakeCube.get()[13] and fakeCube.get()[15] == fakeCube.get()[13] and fakeCube.get()[16] == fakeCube.get()[13] and fakeCube.get()[17] == fakeCube.get()[13]):
+                    if(fakeCube.get()[21] == fakeCube.get()[22] and fakeCube.get()[23] == fakeCube.get()[22] and fakeCube.get()[24] == fakeCube.get()[22] and fakeCube.get()[25] == fakeCube.get()[22] and fakeCube.get()[26] == fakeCube.get()[22]):
+                        if(fakeCube.get()[30] == fakeCube.get()[31] and fakeCube.get()[32] == fakeCube.get()[31] and fakeCube.get()[33] == fakeCube.get()[31] and fakeCube.get()[34] == fakeCube.get()[31] and fakeCube.get()[35] == fakeCube.get()[31]):
+                            return result
+            
+            
+        while x < 5:
             # Checks to see where we have matching face and top and rotate to move color to the side  of left
             #### Checks Front and left
             if (fakeCube.get()[1] == fakeCube.get()[4]) and (fakeCube.get()[43] == fakeCube.get()[31]):
@@ -58,7 +111,7 @@ def solveMiddleLayer(theCube: Cube) -> str:
                 fakeCube._rotateu()
                 fakeCube._rotateb()
             #checks left and back    
-            if (fakeCube.get()[28] == fakeCube.get()[31]) and (fakeCube.get()[39] == fakeCube.get()[4]):
+            if (fakeCube.get()[28] == fakeCube.get()[31]) and (fakeCube.get()[39] == fakeCube.get()[22]):
                 result += 'ubUBULul'
                 fakeCube._rotateu()
                 fakeCube._rotateb()
@@ -81,8 +134,8 @@ def solveMiddleLayer(theCube: Cube) -> str:
                 fakeCube._rotatef()
                 fakeCube._rotateU()
                 fakeCube._rotateF()
-            #checks 
-            if (fakeCube.get()[10] == fakeCube.get()[13]) and (fakeCube.get()[41] == fakeCube.get()[4]):
+            #checks right and back
+            if (fakeCube.get()[10] == fakeCube.get()[13]) and (fakeCube.get()[41] == fakeCube.get()[22]):
                 result += 'UBuburUR'
                 fakeCube._rotateU()
                 fakeCube._rotateB()
@@ -92,32 +145,33 @@ def solveMiddleLayer(theCube: Cube) -> str:
                 fakeCube._rotater()
                 fakeCube._rotateU()
                 fakeCube._rotateR()
+            #checks back and left
             if (fakeCube.get()[19] == fakeCube.get()[22]) and (fakeCube.get()[37] == fakeCube.get()[31]):
-                result += 'urURUBub'
-                fakeCube._rotateu()
-                fakeCube._rotater()
-                fakeCube._rotateU()
-                fakeCube._rotateR()
-                fakeCube._rotateU()
-                fakeCube._rotateB()
-                fakeCube._rotateu()
-                fakeCube._rotateb()
-                
-            if (fakeCube.get()[28] == fakeCube.get()[31]) and (fakeCube.get()[39] == fakeCube.get()[4]):
-                result += 'ubUBULul'
-                fakeCube._rotateu()
-                fakeCube._rotateb()
-                fakeCube._rotateU()
-                fakeCube._rotateB()
+                result += 'ULulubUB'
                 fakeCube._rotateU()
                 fakeCube._rotateL()
                 fakeCube._rotateu()
-                fakeCube._rotatel()    
+                fakeCube._rotatel()
+                fakeCube._rotateu()
+                fakeCube._rotateb()
+                fakeCube._rotateU()
+                fakeCube._rotateB()
+            #checks left and front   
+            if (fakeCube.get()[28] == fakeCube.get()[31]) and (fakeCube.get()[39] == fakeCube.get()[4]):
+                result += 'UFufulUL'
+                fakeCube._rotateU()
+                fakeCube._rotateF()
+                fakeCube._rotateu()
+                fakeCube._rotatef()
+                fakeCube._rotateu()
+                fakeCube._rotatel()
+                fakeCube._rotateU()
+                fakeCube._rotateL()    
             result += 'U'
             fakeCube._rotateU()
             x+= 1
         
         
-        
         count+= 1
-    return 'B'      #TODO:  remove this stubbed value
+    print(result)
+    return result      #TODO:  remove this stubbed value
