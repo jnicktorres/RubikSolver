@@ -21,7 +21,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result)
+        self.assertEqual('error: 123', result['status'])
     
         
 #test if more or less than 6 unique Values in cube            
@@ -30,7 +30,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result)
+        self.assertEqual('error: 123', result['status'])
           
 
 #test if more or less than 6 unique Values in Center index of cube
@@ -40,19 +40,9 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result)
+        self.assertEqual('error: 123', result['status'])
         
 #test to see if missing direction will set to F
-        
-    def test150_rotate_validateCube_MissingDirection(self):
-        encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
-        parms = {}
-        parms['cube'] = encodedCube
-        parms['dir'] = ''
-        result = rotate(parms)
-        self.assertIn('status', result)
-        self.assertEqual('ok', result['status'])
-        self.assertEqual(encodedCube, result.get('cube'))
 
 #test to see if wrong direction is detected          
     def test160_rotate_validateCube_WrongDirections(self):
@@ -61,4 +51,11 @@ class RotateTest(TestCase):
         parms['cube'] = encodedCube
         parms['dir'] = 'FbLZ'
         result = rotate(parms)
-        self.assertEqual('error: 123', result)
+        self.assertEqual('error: 123', result['status'])
+    def test170_rotate_validateCube_EmptyDirection(self):
+        encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        parms['cube'] = encodedCube
+        parms['dir'] = ''
+        result = rotate(parms)
+        self.assertEqual('bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww', result['cube'])

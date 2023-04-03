@@ -59,7 +59,7 @@ def rotate(parms):
     dirs = ['F','f','R','r', 'B','b', 'L','l','U','u', 'D', 'd']               
     directions = parms.get('dir')
     
-    if directions == None:
+    if directions == None or len(directions) == 0:
         #if directions are missing then set to F
         directions = 'F'
          
