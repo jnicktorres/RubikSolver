@@ -12,11 +12,10 @@ def solveMiddleLayer(theCube: Cube) -> str:
     #### Variables  
     fakeCube = theCube
     result = ''
-    loop1 = 0
-    loop2 = 0
+    
     ######
     
-    while loop1 < 4:
+    for iterations in range(0,4):
         
         #Check to see if we have any incorrect tiles on right sides, and if we do correct them
         
@@ -116,7 +115,7 @@ def solveMiddleLayer(theCube: Cube) -> str:
             return result
             
             
-        while loop2 < 3:
+        for iterations2 in range (0,3):
             # Checks to see where we have matching face and top and rotate to move color to the side  of left
             #### Checks Front and left
             if (fakeCube.get()[1] == fakeCube.get()[4]) and (fakeCube.get()[43] == fakeCube.get()[31]):
@@ -211,8 +210,8 @@ def solveMiddleLayer(theCube: Cube) -> str:
                 fakeCube._rotateL()    
             result += 'U'
             fakeCube._rotateU()
+            
            
-        loop1 += 1    
     return result
 
 

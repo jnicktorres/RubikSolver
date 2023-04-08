@@ -111,7 +111,7 @@ class SolveTest(TestCase):
         
 
     def test190_solve_middlelayer(self):
-        encodedCube = 'yobgbyborwyygrbywogwrogybrowybrorwwrgrooybowrygggwbgbw'
+        encodedCube = 'oooybrbogygybrowrrrgwyggwrybwwwobbbroogryygwgybrwwgoyb'
         parms = {}
         parms['cube'] = encodedCube
         dirs = solve(parms)
