@@ -6,6 +6,9 @@ from rubik.controller.upFaceSurface import solveUpSurface
 from rubik.controller.upperLayer import solveUpperLayer
 from rubik.view.rotate import rotate
 from rubik.model.cube import Cube
+import hashlib
+import random
+from ctypes.wintypes import WORD
 
 def solve(parms):
     """Return rotates needed to solve input cube"""
@@ -54,6 +57,10 @@ def solve(parms):
             result['status'] = 'error: 123' 
             return result
 #################################################################################################     
+
+
+
+
     rotations = ""
     rotations += solveBottomCross(theCube)      #iteration 2
     rotations += solveBottomLayer(theCube)      #iteration 3
@@ -65,6 +72,18 @@ def solve(parms):
     
     result['solution'] = rotations
     result['status'] = 'ok'  
-    result['integrity'] = '2'                    #iteration 3
-                     
+    
+    ### Used to create integrity ###
+    wordToToken = theCube.get() + rotations + 'jnt0024'
+    sha256Hash = hashlib.sha256()
+    sha256Hash.update(wordToToken.encode())
+    fullToken = sha256Hash.hexdigest()
+    #getting all possible substrings of length 8 from fullToken
+    integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
+    #pick random substring from array 
+    randomNum = random.randrange(8)
+    
+    
+    result['integrity'] = integrityArray[randomNum]                    #iteration 3
+                   
     return result

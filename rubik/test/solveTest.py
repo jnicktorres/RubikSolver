@@ -216,13 +216,15 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[31], result.get('cube')[33])
             self.assertEqual(result.get('cube')[31], result.get('cube')[34])
             self.assertEqual(result.get('cube')[31], result.get('cube')[35])  
-               
-    def test230_solve_getIntegrity(self):
-            encodedCube = 'rooybwryggbbgrwygorgorgobwwbbyyorbwwyoyryygbwggoowrrwb'
+            
+    def test320_solve_getIntegrity(self):
+            encodedCube = 'bbrbbggrbwgyorrwygowyygwybrbyrrorygwrobbyywogogowwogwo'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)
             parms['dir'] = dirs['solution']
-            result = rotate(parms)
-            self.assertEqual(8, len(result.get('integrity')))  
+            self.assertEqual(8, len(dirs['integrity']))
+            
+            
+   
 
