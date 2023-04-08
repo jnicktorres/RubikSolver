@@ -65,6 +65,6 @@ def solve(parms):
     
     result['solution'] = rotations
     result['status'] = 'ok'  
-    result['integrity'] = ''                    #iteration 3
+    result['integrity'] = '2'                    #iteration 3
                      
     return result
