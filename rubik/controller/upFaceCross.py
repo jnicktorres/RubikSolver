@@ -148,13 +148,13 @@ def solveUpCross(theCube: Cube) -> str:
 def straightLinePattern(fakeCube):
     if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40]):
         return "Vertical"
-    elif (fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[41]):
+    elif (fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40]):
         return "Horizontal"
     else:
         return "No"
     
 def crossPattern(fakeCube):
-    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and  fakeCube.get()[43] == fakeCube.get()[41]):
+    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and  fakeCube.get()[43] == fakeCube.get()[40]):
         return True
 
 def doubleCornerPattern(fakeCube):
