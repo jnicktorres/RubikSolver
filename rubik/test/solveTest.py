@@ -6,7 +6,6 @@ from rubik.model.cube import Cube
 
 class SolveTest(TestCase):
         
-    
     #test if cube is missing    
     def test110_solve_validateCube_missingCube(self):
         encodedCube = None 
@@ -218,5 +217,14 @@ def test220_solve_middlelayer(self):
         self.assertEqual(result.get('cube')[31], result.get('cube')[33])
         self.assertEqual(result.get('cube')[31], result.get('cube')[34])
         self.assertEqual(result.get('cube')[31], result.get('cube')[35])        
-        
+
+def test230_solve_getIntegrity(self):
+        encodedCube = 'rooybwryggbbgrwygorgorgobwwbbyyorbwwyoyryygbwggoowrrbw'
+        parms = {}
+        parms['cube'] = encodedCube
+        dirs = solve(parms)
+        parms['dir'] = dirs['solution']
+        result = rotate(parms)
+        self.assertEqual(12, len(result.get('integrity')))
+                
  
