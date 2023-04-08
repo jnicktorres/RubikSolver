@@ -264,7 +264,8 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[39])
             self.assertEqual(result.get('cube')[40], result.get('cube')[41])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
-          
+
+        
             
    
 
