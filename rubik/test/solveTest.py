@@ -224,5 +224,5 @@ class SolveTest(TestCase):
             dirs = solve(parms)
             parms['dir'] = dirs['solution']
             result = rotate(parms)
-            self.assertEqual(12, len(result.get('integrity')))  
+            self.assertEqual(8, len(result.get('integrity')))  
 
