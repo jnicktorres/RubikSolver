@@ -304,7 +304,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[39])
             self.assertEqual(result.get('cube')[40], result.get('cube')[41])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
-            print(result.get('cube'))
+         
 
     def test260_solve_upperFace(self):
             encodedCube = 'owyobgogobbgyrrbrgybwyggwrorbwrowgybbwryyoggryowowwybr'

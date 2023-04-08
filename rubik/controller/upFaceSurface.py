@@ -14,18 +14,18 @@ def solveUpSurface(theCube: Cube) -> str:
     fakeCube = theCube
     result = ''
     ######
-    print("Start")
-    print(fakeCube.get())
-    
-    
+ 
+    # Loop until we have face surface
     while hasUpperFacePattern(fakeCube) == False:
-        print("inside")
+   
        
         if(hasUpperFacePattern(fakeCube) == True):
             return result
         
+        
+        # Check for cross pattern
         elif crossPattern(fakeCube) == True:
-            while(fakeCube.get()[29] != fakeCube.get()[40]):
+            for _ in range(0,4):
                 result+='U'
                 fakeCube._rotateU()
             result += "RUrURUUr"
@@ -37,7 +37,8 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("cross")
+        
+        # Checks for tree patters **************************************************
         elif treePattern(fakeCube) == "up":
             result += "RUrURUUr"
             fakeCube._rotateR()
@@ -48,9 +49,9 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("upt")
+
         elif treePattern(fakeCube) == "right":
-            print(fakeCube.get())
+           
             result += "uRUrURUUr"
             fakeCube._rotateu()
             fakeCube._rotateR()
@@ -61,7 +62,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("rightt")
+
         elif treePattern(fakeCube) == "down":
             result += "UURUrURUUr"
             fakeCube._rotateU()
@@ -74,7 +75,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("downt")
+
             
         elif treePattern(fakeCube) == "left":
             result += "URUrURUUr"
@@ -87,9 +88,9 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("leftt")
+        #**************************************************
     
-    # Find Fish       
+        # Checks for Fish Patters **************************************************    
     
         elif fishPattern(fakeCube) == "topleft":
             result += "uRUrURUUr"
@@ -102,7 +103,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("topleftf")
+
         elif fishPattern(fakeCube) == "topright":
             result += "UURUrURUUr"
             fakeCube._rotateU()
@@ -115,7 +116,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("toprightf")
+
             
         elif fishPattern(fakeCube) == "botright":
             result += "URUrURUUr"
@@ -128,7 +129,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("botrightf")
+  
         elif fishPattern(fakeCube) == "botleft":
             result += "RUrURUUr"
             fakeCube._rotateR()
@@ -139,7 +140,9 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("botleftf")
+        # **************************************************
+        
+        # Checks for Double Fish Pattern **************************************************
         elif doubleFishPattern(fakeCube) == "leftdiagonal":
             result += "URUrURUUr"
             fakeCube._rotateU()
@@ -151,7 +154,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()
-            print("doublefishleft")
+ 
         elif doubleFishPattern(fakeCube) == "rightdiagonal":
             result += "RUrURUUr"
             fakeCube._rotateR()
@@ -161,8 +164,10 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateR()
             fakeCube._rotateU()
             fakeCube._rotateU()
-            fakeCube._rotater()
-            print("doublefishright")   
+            fakeCube._rotater() 
+        # **************************************************
+        
+        #if we come across cross pattern with no left facing yellow tile
         else: 
             result += "RUrURUUr"
             fakeCube._rotateR()
@@ -173,7 +178,7 @@ def solveUpSurface(theCube: Cube) -> str:
             fakeCube._rotateU()
             fakeCube._rotateU()
             fakeCube._rotater()   
-    return result     #TODO:  remove this stubbed value
+    return result
 
 
 
@@ -181,7 +186,8 @@ def solveUpSurface(theCube: Cube) -> str:
 
 
 
-  
+# Local Methods to check for different patterns
+
 def crossPattern(fakeCube):
     if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
         return True

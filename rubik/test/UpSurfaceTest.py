@@ -20,7 +20,6 @@ class Test(unittest.TestCase):
         dirs = solve(parms)
         parms['dir'] = dirs['solution']
         result = rotate(parms)
-        print(result.get('cube'))
         self.assertEqual('w', result.get('cube')[45])
         self.assertEqual('w', result.get('cube')[46])
         self.assertEqual('w', result.get('cube')[47])
