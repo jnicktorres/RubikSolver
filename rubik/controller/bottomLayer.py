@@ -18,12 +18,12 @@ def solveBottomLayer(theCube: Cube) -> str:
     leftcorn = [0,9, 18,27]
     topcorn = [36,38,42,44]
     result = ''
-    count = 0
+    
     
     
     ## start
     
-    while count < 4:
+    for _ in range(0,4):
         
     ################## if white tiles are on bottom layer or white tile on bottom is wrong then move ########################################
         if (matchcol in fakeCube.get()[6] or matchcol in fakeCube.get()[35]) or (matchcol == fakeCube.get()[45] and fakeCube.get()[6] != fakeCube.get()[4]):
@@ -52,9 +52,9 @@ def solveBottomLayer(theCube: Cube) -> str:
         
              
         ################## if white tiles are on top then move to middle of cube ########################################    
-        for i in topcorn:
-            if fakeCube.get()[i] == matchcol:
-                for nothing in range(0,4):     
+        for tile in topcorn:
+            if fakeCube.get()[tile] == matchcol:
+                for _ in range(0,4):     
                     if fakeCube.get()[36] == matchcol and fakeCube.get()[51] != matchcol:
                         result += 'Lul'
                         fakeCube._rotateL()
@@ -82,10 +82,10 @@ def solveBottomLayer(theCube: Cube) -> str:
         
         ############################### Move Left Corner Tiles #################################################  
             
-        for i in leftcorn:      
-            if fakeCube.get()[i] == matchcol:
+        for tile in leftcorn:      
+            if fakeCube.get()[tile] == matchcol:
                 #finding opposite corner of white corner
-                if i == 0:
+                if tile == 0:
                     temp = fakeCube.get()[29]
                     for c in centers:
                         if(fakeCube.get()[c] == temp and c == 4):                    
@@ -117,7 +117,7 @@ def solveBottomLayer(theCube: Cube) -> str:
                             result += 'ULUl'
                             break
                             
-                elif i == 27:
+                elif tile == 27:
                     
                     temp = fakeCube.get()[20]
                     for c in centers:
@@ -152,7 +152,7 @@ def solveBottomLayer(theCube: Cube) -> str:
                             result += 'LUl'
                             break 
                             
-                elif i == 18:
+                elif tile == 18:
                             
                     temp = fakeCube.get()[11]
                             
@@ -227,9 +227,9 @@ def solveBottomLayer(theCube: Cube) -> str:
         
         ################## Move Right Corner Tiles######################################## 
             
-        for i in rightcorn:            #finding opposite corner of white corner
-            if fakeCube.get()[i] == matchcol:
-                if i == 2:
+        for tile in rightcorn:            #finding opposite corner of white corner
+            if fakeCube.get()[tile] == matchcol:
+                if tile == 2:
                     temp = fakeCube.get()[9]
                     for c in centers:
                         if(fakeCube.get()[c] == temp and c == 4):                    
@@ -263,7 +263,7 @@ def solveBottomLayer(theCube: Cube) -> str:
                             result += 'UUbuB'
                             break
                             
-                elif i == 11:                   
+                elif tile == 11:                   
                     temp = fakeCube.get()[18]
                     for c in centers:
                         if(fakeCube.get()[c] == temp and c == 4):
@@ -298,7 +298,7 @@ def solveBottomLayer(theCube: Cube) -> str:
                             break
                              
                             
-                elif i == 20:
+                elif tile == 20:
                             
                     temp = fakeCube.get()[27]
                             
@@ -369,7 +369,7 @@ def solveBottomLayer(theCube: Cube) -> str:
                             break          
                 break
         
-        count += 1
+       
             
     return result    
         
