@@ -18,14 +18,14 @@ def rotate(parms):
     centers = [4,13,22,31,40,49]
     
     if parms.get('cube') == None: 
-        result['status'] = 'error: 123'
+        result['status'] = 'error: Empty Cube'
         return result
     
     
     if parms.get('cube') != None: 
         
         if len(theCube.get()) != 54 or theCube.get().isalnum() == False:
-            result['status'] = 'error: 123'
+            result['status'] = 'error: Invalid Values in Cube or Invalid Length of Cube'
             return result
                
         #Checks to see if there are no more than 6 unique numbers in string
@@ -38,11 +38,11 @@ def rotate(parms):
         
         for key in checkUnique:
             if checkUnique[key] != 9:
-                result['status'] = 'error: 123' 
+                result['status'] = 'error: Invalid Unique Values' 
                 return result
                     
         if len(checkUnique) != 6:
-            result['status'] = 'error: 123' 
+            result['status'] = 'error: Invalid Unique Values' 
             return result
         
         #Checks centers to see if they are unique
@@ -51,7 +51,7 @@ def rotate(parms):
                 checkCenter[theCube.get()[num]] = 1
                 
         if len(checkCenter) != 6:
-            result['status'] = 'error: 123' 
+            result['status'] = 'error: Not Enough Unique Centers' 
             return result     
      
      
@@ -67,7 +67,7 @@ def rotate(parms):
         #iterate through directions and see if they are valid
         for i in directions:
             if i not in dirs:
-                result['status'] = 'error: 123' 
+                result['status'] = 'error: Invalid Directions' 
                 return result
     
    
