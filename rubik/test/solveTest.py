@@ -12,7 +12,7 @@ class SolveTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = solve(parms)
-        error = {'status': 'error: 123'}
+        error = {'status': 'error: Empty Cube'}
         self.assertEqual(error, result)
     
     #test that less than 54 characters in cube    
@@ -21,7 +21,7 @@ class SolveTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = solve(parms)
-        error = {'status': 'error: 123'}
+        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
         self.assertEqual(error, result)
         
     #test if invalid characters in cube          
@@ -30,7 +30,7 @@ class SolveTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = solve(parms)
-        error = {'status': 'error: 123'}
+        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
         self.assertEqual(error, result)
         
     #test if more or less than 6 unique Values in cube            
@@ -39,7 +39,7 @@ class SolveTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = solve(parms)
-        error = {'status': 'error: 123'}
+        error = {'status': 'error: Invalid Unique Elements Count'}
         self.assertEqual(error, result)
         
     #test to make sure cube has unique center values
@@ -48,7 +48,7 @@ class SolveTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = solve(parms)
-        error = {'status': 'error: 123'}
+        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
         self.assertEqual(error, result)
     
     #tests to see if bottom layer is solved. This is scramble test #1

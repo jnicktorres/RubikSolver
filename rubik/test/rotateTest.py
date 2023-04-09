@@ -21,7 +21,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result['status'])
+        self.assertEqual('error: Invalid Values in Cube or Invalid Length of Cube', result['status'])
     
         
 #test if more or less than 6 unique Values in cube            
@@ -30,7 +30,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result['status'])
+        self.assertEqual('error: Invalid Unique Values', result['status'])
           
 
 #test if more or less than 6 unique Values in Center index of cube
@@ -40,7 +40,7 @@ class RotateTest(TestCase):
         parms = {}
         parms['cube'] = encodedCube
         result = rotate(parms)
-        self.assertEqual('error: 123', result['status'])
+        self.assertEqual('error: Invalid Values in Cube or Invalid Length of Cube', result['status'])
         
 #test to see if missing direction will set to F
 
@@ -51,7 +51,7 @@ class RotateTest(TestCase):
         parms['cube'] = encodedCube
         parms['dir'] = 'FbLZ'
         result = rotate(parms)
-        self.assertEqual('error: 123', result['status'])
+        self.assertEqual('error: Invalid Directions', result['status'])
     def test170_rotate_validateCube_EmptyDirection(self):
         encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
         parms = {}
