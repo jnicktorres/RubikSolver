@@ -14,18 +14,18 @@ def solveBottomCross(theCube: Cube) -> str:
     
     #### Variables
     
-    fakeCube = theCube
-    matchcol = fakeCube.get()[49] # color to be matched
-    frontCenterColor = fakeCube.get()[4]
-    rightCenterColor = fakeCube.get()[13]
-    backCenterColor = fakeCube.get()[22]
-    leftCenterColor = fakeCube.get()[31]
+    inputCube = theCube
+    matchcol = inputCube.get()[49] # color to be matched
+    frontCenterColor = inputCube.get()[4]
+    rightCenterColor = inputCube.get()[13]
+    backCenterColor = inputCube.get()[22]
+    leftCenterColor = inputCube.get()[31]
     
     result = ""
-    dirs1 = [46,48,50,52] # in underneath squares
-    dirs2 = [1, 10, 19, 28]# in top row of middle squares
-    dirs3 = [32, 12, 5, 21, 14, 30, 23, 3]     # in middle row of middle squares
-    dirs4 = [7, 16, 25, 34] # in bottom row of middle squares
+    underSquares = [46,48,50,52] # in underneath squares
+    topMiddleSquares = [1, 10, 19, 28]# in top row of middle squares
+    middleSquares = [32, 12, 5, 21, 14, 30, 23, 3]     # in middle row of middle squares
+    botMiddleSquares = [7, 16, 25, 34] # in bottom row of middle squares
     
     ##########################################################
     
@@ -33,18 +33,18 @@ def solveBottomCross(theCube: Cube) -> str:
         num = 0 #keeps track of amount of times we find an eligible square in the same orientation
         
         #solves middle daisy squares if directly underneath
-        for i in dirs1:
-            if fakeCube.get()[i] == matchcol:
+        for i in underSquares:
+            if inputCube.get()[i] == matchcol:
                 for _ in range(0, num):
-                    fakeCube._rotateD()
+                    inputCube._rotateD()
                     result += 'D'
                     
-                while fakeCube.get()[43] == matchcol:
-                    fakeCube._rotateU()
+                while inputCube.get()[43] == matchcol:
+                    inputCube._rotateU()
                     result += 'U'
                     
-                fakeCube._rotateF()
-                fakeCube._rotateF()
+                inputCube._rotateF()
+                inputCube._rotateF()
                 result += 'FF'
                 break
             num+= 1            
@@ -53,102 +53,102 @@ def solveBottomCross(theCube: Cube) -> str:
         num = 0
         
         # finds colors in top row of middle squares
-        for i in dirs2:
-            if fakeCube.get()[i] == matchcol:
+        for i in topMiddleSquares:
+            if inputCube.get()[i] == matchcol:
                 for _ in range(0, num):
-                    fakeCube._rotateU()
+                    inputCube._rotateU()
                     result += 'U'
-                fakeCube._rotateF() 
-                fakeCube._rotateu()  
-                fakeCube._rotateR()    
+                inputCube._rotateF() 
+                inputCube._rotateu()  
+                inputCube._rotateR()    
                 result += 'FuR'
             num += 1
         
         num = 0
         
         # finds colors in middle rows of middle squares
-        for i in dirs3:
-            if fakeCube.get()[i] == matchcol:
+        for i in middleSquares:
+            if inputCube.get()[i] == matchcol:
                 ######  left and right of front face
                 if i == 32:
-                    while fakeCube.get()[43] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[43] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotateF()
+                    inputCube._rotateF()
                     result += 'F'
                     
                 elif i == 12:
-                    while fakeCube.get()[43] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[43] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotatef()
+                    inputCube._rotatef()
                     result += 'f'
                 
                 ###### left and right of front of left face                     
                 elif i == 5:
-                    while fakeCube.get()[41] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[41] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotateR()
+                    inputCube._rotateR()
                     result += 'R' 
                     
                 elif i == 21:
-                    while fakeCube.get()[41] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[41] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotater()
+                    inputCube._rotater()
                     result += 'r' 
                 
                 ###### left and right of back of face      
                 elif i == 14:
-                    while fakeCube.get()[37] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[37] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotateB()
+                    inputCube._rotateB()
                     result += 'B'
                     
                 elif i == 30: 
-                    while fakeCube.get()[37] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[37] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotateb()
+                    inputCube._rotateb()
                     result += 'b'
                     
                 ###### left and right of back of left face      
                 elif i == 23:
-                    while fakeCube.get()[39] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[39] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotateL()
+                    inputCube._rotateL()
                     result += 'L'
                     
                 elif i == 3: 
-                    while fakeCube.get()[39] == matchcol:
-                        fakeCube._rotateU()
+                    while inputCube.get()[39] == matchcol:
+                        inputCube._rotateU()
                         result += 'U'
-                    fakeCube._rotatel()
+                    inputCube._rotatel()
                     result += 'l'             
                 break  
                   
 
             # finds colors in bottom row of middle squares
-        for i in dirs4:
-            if fakeCube.get()[i] == matchcol:
+        for i in botMiddleSquares:
+            if inputCube.get()[i] == matchcol:
                 for _ in range(0, num):
-                    fakeCube._rotateD()
+                    inputCube._rotateD()
                     result += 'D'
                 
-                while fakeCube.get()[43] == matchcol:
-                    fakeCube._rotateU()
+                while inputCube.get()[43] == matchcol:
+                    inputCube._rotateU()
                     result += 'U'
                     
-                fakeCube._rotateF() 
-                fakeCube._rotateU()  
-                fakeCube._rotatel()    
+                inputCube._rotateF() 
+                inputCube._rotateU()  
+                inputCube._rotatel()    
                 result += 'FUl'
             num += 1    
         ## if we find daisy then break
-        if (fakeCube.get()[37] == matchcol and fakeCube.get()[39] == matchcol and fakeCube.get()[41] == matchcol and fakeCube.get()[43] == matchcol):
+        if (inputCube.get()[37] == matchcol and inputCube.get()[39] == matchcol and inputCube.get()[41] == matchcol and inputCube.get()[43] == matchcol):
             break
             
         
@@ -156,36 +156,36 @@ def solveBottomCross(theCube: Cube) -> str:
     ###################### FLIP DAISY TO BOTTOM
         
     #flips front face
-    while fakeCube.get()[1] != frontCenterColor or fakeCube.get()[43] != matchcol:
+    while inputCube.get()[1] != frontCenterColor or inputCube.get()[43] != matchcol:
         result += 'U'
-        fakeCube._rotateU()
-    fakeCube._rotateF()
-    fakeCube._rotateF()
+        inputCube._rotateU()
+    inputCube._rotateF()
+    inputCube._rotateF()
     result += 'FF'
     
     #flips right face
-    while fakeCube.get()[10] != rightCenterColor or fakeCube.get()[41] != matchcol:
+    while inputCube.get()[10] != rightCenterColor or inputCube.get()[41] != matchcol:
         result += 'U'
-        fakeCube._rotateU()
-    fakeCube._rotateR()
-    fakeCube._rotateR()
+        inputCube._rotateU()
+    inputCube._rotateR()
+    inputCube._rotateR()
     result += 'RR' 
     
     #flips back face
-    while fakeCube.get()[19] != backCenterColor or fakeCube.get()[37] != matchcol:
+    while inputCube.get()[19] != backCenterColor or inputCube.get()[37] != matchcol:
         result += 'U'
-        fakeCube._rotateU()
-    fakeCube._rotateB()
-    fakeCube._rotateB()
+        inputCube._rotateU()
+    inputCube._rotateB()
+    inputCube._rotateB()
     result += 'BB'
     
     #flips left face    
-    while fakeCube.get()[28] != leftCenterColor or fakeCube.get()[39] != matchcol:
+    while inputCube.get()[28] != leftCenterColor or inputCube.get()[39] != matchcol:
         result += 'U'
-        fakeCube._rotateU()
+        inputCube._rotateU()
         
-    fakeCube._rotateL()
-    fakeCube._rotateL()
+    inputCube._rotateL()
+    inputCube._rotateL()
     result += 'LL'        
     ##############################               
                  

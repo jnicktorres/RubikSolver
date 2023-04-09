@@ -10,9 +10,8 @@ def solveBottomLayer(theCube: Cube) -> str:
         output: the rotations required to solve the bottom layer  
     '''   
     #### Variables  
-    fakeCube = theCube
-    matchcol = fakeCube.get()[49] # color to be matched
-    result = ""
+    inputCube = theCube
+    matchcol = inputCube.get()[49] # color to be matched
     centers = [4,13,22,31]
     rightcorn = [2,11, 20,29]
     leftcorn = [0,9, 18,27]
@@ -26,201 +25,201 @@ def solveBottomLayer(theCube: Cube) -> str:
     for _ in range(0,4):
         
     ################## if white tiles are on bottom layer or white tile on bottom is wrong then move ########################################
-        if (matchcol in fakeCube.get()[6] or matchcol in fakeCube.get()[35]) or (matchcol == fakeCube.get()[45] and fakeCube.get()[6] != fakeCube.get()[4]):
-            fakeCube._rotatel()
-            fakeCube._rotateu()
-            fakeCube._rotateL()
+        if (matchcol in inputCube.get()[6] or matchcol in inputCube.get()[35]) or (matchcol == inputCube.get()[45] and inputCube.get()[6] != inputCube.get()[4]):
+            inputCube._rotatel()
+            inputCube._rotateu()
+            inputCube._rotateL()
             result += 'luL'
             
                
-        elif (matchcol in fakeCube.get()[33] or matchcol in fakeCube.get()[26]) or (matchcol == fakeCube.get()[51] and fakeCube.get()[33] != fakeCube.get()[31]):
-            fakeCube._rotateb()
-            fakeCube._rotateu()
-            fakeCube._rotateB()
+        elif (matchcol in inputCube.get()[33] or matchcol in inputCube.get()[26]) or (matchcol == inputCube.get()[51] and inputCube.get()[33] != inputCube.get()[31]):
+            inputCube._rotateb()
+            inputCube._rotateu()
+            inputCube._rotateB()
             result += 'buB'
-        elif  (matchcol in fakeCube.get()[8] or matchcol in fakeCube.get()[15]) or (matchcol == fakeCube.get()[47] and fakeCube.get()[15] != fakeCube.get()[13]):
-            fakeCube._rotatef()
-            fakeCube._rotateu()
-            fakeCube._rotateF()
+        elif  (matchcol in inputCube.get()[8] or matchcol in inputCube.get()[15]) or (matchcol == inputCube.get()[47] and inputCube.get()[15] != inputCube.get()[13]):
+            inputCube._rotatef()
+            inputCube._rotateu()
+            inputCube._rotateF()
             result += 'fuF'
                
-        elif  (matchcol in fakeCube.get()[17] or matchcol in fakeCube.get()[24]) or (matchcol == fakeCube.get()[53] and fakeCube.get()[24] != fakeCube.get()[22]):
-            fakeCube._rotater()
-            fakeCube._rotateu()
-            fakeCube._rotateR()
+        elif  (matchcol in inputCube.get()[17] or matchcol in inputCube.get()[24]) or (matchcol == inputCube.get()[53] and inputCube.get()[24] != inputCube.get()[22]):
+            inputCube._rotater()
+            inputCube._rotateu()
+            inputCube._rotateR()
             result += 'ruR'
         
              
         ################## if white tiles are on top then move to middle of cube ########################################    
         for tile in topcorn:
-            if fakeCube.get()[tile] == matchcol:
+            if inputCube.get()[tile] == matchcol:
                 for _ in range(0,4):     
-                    if fakeCube.get()[36] == matchcol and fakeCube.get()[51] != matchcol:
+                    if inputCube.get()[36] == matchcol and inputCube.get()[51] != matchcol:
                         result += 'Lul'
-                        fakeCube._rotateL()
-                        fakeCube._rotateu()
-                        fakeCube._rotatel()
-                    elif fakeCube.get()[38] == matchcol and fakeCube.get()[53] != matchcol:
+                        inputCube._rotateL()
+                        inputCube._rotateu()
+                        inputCube._rotatel()
+                    elif inputCube.get()[38] == matchcol and inputCube.get()[53] != matchcol:
                         result += 'Bub'
-                        fakeCube._rotateB()
-                        fakeCube._rotateu()
-                        fakeCube._rotateb()    
-                    elif fakeCube.get()[42] == matchcol and fakeCube.get()[45] != matchcol:
+                        inputCube._rotateB()
+                        inputCube._rotateu()
+                        inputCube._rotateb()    
+                    elif inputCube.get()[42] == matchcol and inputCube.get()[45] != matchcol:
                         result += 'Fuf'
-                        fakeCube._rotateF()
-                        fakeCube._rotateu()
-                        fakeCube._rotatef()
-                    elif fakeCube.get()[44] == matchcol and fakeCube.get()[47] != matchcol:
+                        inputCube._rotateF()
+                        inputCube._rotateu()
+                        inputCube._rotatef()
+                    elif inputCube.get()[44] == matchcol and inputCube.get()[47] != matchcol:
                         result += 'Rur'
-                        fakeCube._rotateR()
-                        fakeCube._rotateu()
-                        fakeCube._rotater()         
+                        inputCube._rotateR()
+                        inputCube._rotateu()
+                        inputCube._rotater()         
                     else:
                         result += 'U'
-                        fakeCube._rotateU()
+                        inputCube._rotateU()
                 break
         
         ############################### Move Left Corner Tiles #################################################  
             
         for tile in leftcorn:      
-            if fakeCube.get()[tile] == matchcol:
+            if inputCube.get()[tile] == matchcol:
                 #finding opposite corner of white corner
                 if tile == 0:
-                    temp = fakeCube.get()[29]
+                    temp = inputCube.get()[29]
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):                    
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
-                            fakeCube._rotateU()
-                            fakeCube._rotater()               
+                        if(inputCube.get()[c] == temp and c == 4):                    
+                            inputCube._rotateu()
+                            inputCube._rotateR()
+                            inputCube._rotateU()
+                            inputCube._rotater()               
                             result += 'uRUr'
                             break    
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateF()
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateF()
+                            inputCube._rotateU()
+                            inputCube._rotatef()
                             result += 'FUf'
                             break                      
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateu()
-                            fakeCube._rotateu()
-                            fakeCube._rotateB()
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateu()
+                            inputCube._rotateu()
+                            inputCube._rotateB()
+                            inputCube._rotateU()
+                            inputCube._rotateb()
                             result += 'uuBUb'
                             break        
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateU()
-                            fakeCube._rotateL()
-                            fakeCube._rotateU()
-                            fakeCube._rotatel()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateU()
+                            inputCube._rotateL()
+                            inputCube._rotateU()
+                            inputCube._rotatel()
                             result += 'ULUl'
                             break
                             
                 elif tile == 27:
                     
-                    temp = fakeCube.get()[20]
+                    temp = inputCube.get()[20]
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):                    
-                            fakeCube._rotateu()
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
-                            fakeCube._rotateU()
-                            fakeCube._rotater()               
+                        if(inputCube.get()[c] == temp and c == 4):                    
+                            inputCube._rotateu()
+                            inputCube._rotateu()
+                            inputCube._rotateR()
+                            inputCube._rotateU()
+                            inputCube._rotater()               
                             result += 'uuRUr'
                             break    
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateu()
+                            inputCube._rotateF()
+                            inputCube._rotateU()
+                            inputCube._rotatef()
                             result += 'uFUf'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateU()
-                            fakeCube._rotateB()
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateU()
+                            inputCube._rotateB()
+                            inputCube._rotateU()
+                            inputCube._rotateb()
                             result += 'UBUb'
                             break
                                 
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateL()
-                            fakeCube._rotateU()
-                            fakeCube._rotatel()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateL()
+                            inputCube._rotateU()
+                            inputCube._rotatel()
                             result += 'LUl'
                             break 
                             
                 elif tile == 18:
                             
-                    temp = fakeCube.get()[11]
+                    temp = inputCube.get()[11]
                             
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):                    
-                            fakeCube._rotateU()
-                            fakeCube._rotateR()
-                            fakeCube._rotateU()
-                            fakeCube._rotater()               
+                        if(inputCube.get()[c] == temp and c == 4):                    
+                            inputCube._rotateU()
+                            inputCube._rotateR()
+                            inputCube._rotateU()
+                            inputCube._rotater()               
                             result += 'URUr'
                             break    
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateu()
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateu()
+                            inputCube._rotateu()
+                            inputCube._rotateF()
+                            inputCube._rotateU()
+                            inputCube._rotatef()
                             result += 'uuFUf'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateB()
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateB()
+                            inputCube._rotateU()
+                            inputCube._rotateb()
                             result += 'BUb'
                             break        
-                        elif(fakeCube.get()[c] == temp and c == 22):
+                        elif(inputCube.get()[c] == temp and c == 22):
                                 
-                            fakeCube._rotateu()                            
-                            fakeCube._rotateL()
-                            fakeCube._rotateU()
-                            fakeCube._rotatel()
+                            inputCube._rotateu()                            
+                            inputCube._rotateL()
+                            inputCube._rotateU()
+                            inputCube._rotatel()
                             result += 'uLUl'
             
                             break
                 else:
                             
-                    temp = fakeCube.get()[2]
+                    temp = inputCube.get()[2]
                              
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):                    
-                            fakeCube._rotateR()
-                            fakeCube._rotateU()
-                            fakeCube._rotater()               
+                        if(inputCube.get()[c] == temp and c == 4):                    
+                            inputCube._rotateR()
+                            inputCube._rotateU()
+                            inputCube._rotater()               
                             result += 'RUr'
                             break
                                 
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateU()
-                            fakeCube._rotateF()
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateU()
+                            inputCube._rotateF()
+                            inputCube._rotateU()
+                            inputCube._rotatef()
                             result += 'UFUf'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateu()   
-                            fakeCube._rotateB()
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateu()   
+                            inputCube._rotateB()
+                            inputCube._rotateU()
+                            inputCube._rotateb()
                             result += 'uBUb'
                             break        
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateu()
-                            fakeCube._rotateu()                              
-                            fakeCube._rotateL()
-                            fakeCube._rotateU()
-                            fakeCube._rotatel()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateu()
+                            inputCube._rotateu()                              
+                            inputCube._rotateL()
+                            inputCube._rotateU()
+                            inputCube._rotatel()
                             result += 'uuLUl'
                             break            
                 break
@@ -228,143 +227,143 @@ def solveBottomLayer(theCube: Cube) -> str:
         ################## Move Right Corner Tiles######################################## 
             
         for tile in rightcorn:            #finding opposite corner of white corner
-            if fakeCube.get()[tile] == matchcol:
+            if inputCube.get()[tile] == matchcol:
                 if tile == 2:
-                    temp = fakeCube.get()[9]
+                    temp = inputCube.get()[9]
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):                    
-                            fakeCube._rotateU()
-                            fakeCube._rotatel()
-                            fakeCube._rotateu()
-                            fakeCube._rotateL()               
+                        if(inputCube.get()[c] == temp and c == 4):                    
+                            inputCube._rotateU()
+                            inputCube._rotatel()
+                            inputCube._rotateu()
+                            inputCube._rotateL()               
                             result += 'UluL'
                             break
                                 
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotatef()
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotatef()
+                            inputCube._rotateu()
+                            inputCube._rotateF()
                             result += 'fuF'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateu()
-                            fakeCube._rotater()
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateu()
+                            inputCube._rotater()
+                            inputCube._rotateu()
+                            inputCube._rotateR()
                             result += 'uruR'
                             break        
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateU()
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
-                            fakeCube._rotateu()
-                            fakeCube._rotateB()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateU()
+                            inputCube._rotateU()
+                            inputCube._rotateb()
+                            inputCube._rotateu()
+                            inputCube._rotateB()
                             result += 'UUbuB'
                             break
                             
                 elif tile == 11:                   
-                    temp = fakeCube.get()[18]
+                    temp = inputCube.get()[18]
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):
-                            fakeCube._rotateU()
-                            fakeCube._rotateU()                    
-                            fakeCube._rotatel()
-                            fakeCube._rotateu()
-                            fakeCube._rotateL()               
+                        if(inputCube.get()[c] == temp and c == 4):
+                            inputCube._rotateU()
+                            inputCube._rotateU()                    
+                            inputCube._rotatel()
+                            inputCube._rotateu()
+                            inputCube._rotateL()               
                             result += 'UUluL'
                             break    
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateU()
+                            inputCube._rotatef()
+                            inputCube._rotateu()
+                            inputCube._rotateF()
                             result += 'UfuF'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotater()
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotater()
+                            inputCube._rotateu()
+                            inputCube._rotateR()
                             result += 'ruR'
                             break
                                     
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateu()
-                            fakeCube._rotateb()
-                            fakeCube._rotateu()
-                            fakeCube._rotateB()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateu()
+                            inputCube._rotateb()
+                            inputCube._rotateu()
+                            inputCube._rotateB()
                             result += 'ubuB'
                             break
                              
                             
                 elif tile == 20:
                             
-                    temp = fakeCube.get()[27]
+                    temp = inputCube.get()[27]
                             
                     for c in centers:
-                        if(fakeCube.get()[c] == temp and c == 4):
-                            fakeCube._rotateu()                   
-                            fakeCube._rotatel()
-                            fakeCube._rotateu()
-                            fakeCube._rotateL()               
+                        if(inputCube.get()[c] == temp and c == 4):
+                            inputCube._rotateu()                   
+                            inputCube._rotatel()
+                            inputCube._rotateu()
+                            inputCube._rotateL()               
                             result += 'uluL'
                             break
                             
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateU()
-                            fakeCube._rotateU()
-                            fakeCube._rotatef()
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateU()
+                            inputCube._rotateU()
+                            inputCube._rotatef()
+                            inputCube._rotateu()
+                            inputCube._rotateF()
                             result += 'UUfuF'
                             break        
                                     
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateU()
-                            fakeCube._rotater()
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateU()
+                            inputCube._rotater()
+                            inputCube._rotateu()
+                            inputCube._rotateR()
                             result += 'UruR'
                             break
                                 
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateb()
-                            fakeCube._rotateu()
-                            fakeCube._rotateB()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateb()
+                            inputCube._rotateu()
+                            inputCube._rotateB()
                             result += 'buB'
                             break
                 else:
-                    temp = fakeCube.get()[0]
+                    temp = inputCube.get()[0]
                     for c in centers:     
-                        if(fakeCube.get()[c] == temp and c == 4):                 
-                            fakeCube._rotatel()
-                            fakeCube._rotateu()
-                            fakeCube._rotateL()               
+                        if(inputCube.get()[c] == temp and c == 4):                 
+                            inputCube._rotatel()
+                            inputCube._rotateu()
+                            inputCube._rotateL()               
                             result += 'luL'
                             break            
-                        elif(fakeCube.get()[c] == temp and c == 13):
-                            fakeCube._rotateu()
-                            fakeCube._rotatef()
-                            fakeCube._rotateu()
-                            fakeCube._rotateF()
+                        elif(inputCube.get()[c] == temp and c == 13):
+                            inputCube._rotateu()
+                            inputCube._rotatef()
+                            inputCube._rotateu()
+                            inputCube._rotateF()
                             result += 'ufuF'
                             break            
                                         
-                        elif(fakeCube.get()[c] == temp and c == 22):
-                            fakeCube._rotateU()
-                            fakeCube._rotateU()
-                            fakeCube._rotater()
-                            fakeCube._rotateu()
-                            fakeCube._rotateR()
+                        elif(inputCube.get()[c] == temp and c == 22):
+                            inputCube._rotateU()
+                            inputCube._rotateU()
+                            inputCube._rotater()
+                            inputCube._rotateu()
+                            inputCube._rotateR()
                             result += 'UUruR'
                             break
                                     
-                        elif(fakeCube.get()[c] == temp and c == 31):
-                            fakeCube._rotateU()
-                            fakeCube._rotateb()
-                            fakeCube._rotateu()
-                            fakeCube._rotateB()
+                        elif(inputCube.get()[c] == temp and c == 31):
+                            inputCube._rotateU()
+                            inputCube._rotateb()
+                            inputCube._rotateu()
+                            inputCube._rotateB()
                             result += 'UbuB'
                             break          
                 break

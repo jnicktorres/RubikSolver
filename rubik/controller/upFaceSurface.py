@@ -11,173 +11,173 @@ def solveUpSurface(theCube: Cube) -> str:
         output: the rotations required to solve the up surface  
     '''  
     #### Variables  
-    fakeCube = theCube
+    inputCube = theCube
     result = ''
     ######
  
     # Loop until we have face surface
-    while hasUpperFacePattern(fakeCube) == False:
+    while hasUpperFacePattern(inputCube) == False:
    
        
-        if(hasUpperFacePattern(fakeCube) == True):
+        if(hasUpperFacePattern(inputCube) == True):
             return result
         
         
         # Check for cross pattern
-        elif crossPattern(fakeCube) == True:
+        elif crossPattern(inputCube) == True:
             for _ in range(0,4):
                 result+='U'
-                fakeCube._rotateU()
+                inputCube._rotateU()
             result += "RUrURUUr"
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
         
         # Checks for tree patters **************************************************
-        elif treePattern(fakeCube) == "up":
+        elif treePattern(inputCube) == "up":
             result += "RUrURUUr"
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
 
-        elif treePattern(fakeCube) == "right":
+        elif treePattern(inputCube) == "right":
            
             result += "uRUrURUUr"
-            fakeCube._rotateu()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateu()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
 
-        elif treePattern(fakeCube) == "down":
+        elif treePattern(inputCube) == "down":
             result += "UURUrURUUr"
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
 
             
-        elif treePattern(fakeCube) == "left":
+        elif treePattern(inputCube) == "left":
             result += "URUrURUUr"
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
         #**************************************************
     
         # Checks for Fish Patters **************************************************    
     
-        elif fishPattern(fakeCube) == "topleft":
+        elif fishPattern(inputCube) == "topleft":
             result += "uRUrURUUr"
-            fakeCube._rotateu()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateu()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
 
-        elif fishPattern(fakeCube) == "topright":
+        elif fishPattern(inputCube) == "topright":
             result += "UURUrURUUr"
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
 
             
-        elif fishPattern(fakeCube) == "botright":
+        elif fishPattern(inputCube) == "botright":
             result += "URUrURUUr"
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
   
-        elif fishPattern(fakeCube) == "botleft":
+        elif fishPattern(inputCube) == "botleft":
             result += "RUrURUUr"
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
         # **************************************************
         
         # Checks for Double Fish Pattern **************************************************
-        elif doubleFishPattern(fakeCube) == "leftdiagonal":
+        elif doubleFishPattern(inputCube) == "leftdiagonal":
             result += "URUrURUUr"
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()
  
-        elif doubleFishPattern(fakeCube) == "rightdiagonal":
+        elif doubleFishPattern(inputCube) == "rightdiagonal":
             result += "RUrURUUr"
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater() 
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater() 
         # **************************************************
         
         #if we come across cross pattern with no left facing yellow tile
         else: 
             result += "RUrURUUr"
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotater()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotater()   
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotater()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotater()   
     return result
 
 
@@ -188,40 +188,40 @@ def solveUpSurface(theCube: Cube) -> str:
 
 # Local Methods to check for different patterns
 
-def crossPattern(fakeCube):
-    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
+def crossPattern(inputCube):
+    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
         return True
     return False
-def hasUpperFacePattern(fakeCube):
-    if (fakeCube.get()[36] == fakeCube.get()[40] and fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[38] == fakeCube.get()[40] and  fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and  fakeCube.get()[42] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[44] == fakeCube.get()[40]):
+def hasUpperFacePattern(inputCube):
+    if (inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and  inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and  inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40]):
         return True
     return False
-def fishPattern(fakeCube):
-    if(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] == fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
+def fishPattern(inputCube):
+    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
         return "topleft"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[38] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
         return "topright"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[44] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40]):
         return "botright"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[42] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
         return "botleft"
     else:
         return "None"
     
-def treePattern(fakeCube):
-    if(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] == fakeCube.get()[40] and fakeCube.get()[38] == fakeCube.get()[40]):
+def treePattern(inputCube):
+    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40]):
         return "up"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[42] == fakeCube.get()[40] and fakeCube.get()[44] == fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40]):
         return "down"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] == fakeCube.get()[40] and fakeCube.get()[42] == fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40]):
         return "left"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[44] == fakeCube.get()[40] and fakeCube.get()[38] == fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40]):
         return "right"
     else:
         return "None"
     
-def doubleFishPattern(fakeCube):
-    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[36] == fakeCube.get()[40] and fakeCube.get()[44] == fakeCube.get()[40] and fakeCube.get()[38] != fakeCube.get()[40] and fakeCube.get()[42] != fakeCube.get()[40]):
+def doubleFishPattern(inputCube):
+    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40]):
         return "leftdiagonal"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40] and fakeCube.get()[38] == fakeCube.get()[40] and fakeCube.get()[42] == fakeCube.get()[40] and fakeCube.get()[36] != fakeCube.get()[40] and fakeCube.get()[44] != fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
         return "rightdiagonal"

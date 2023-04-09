@@ -10,176 +10,176 @@ def solveUpCross(theCube: Cube) -> str:
         output: the rotations required to solve the up-face cross  
     '''  
     #### Variables  
-    fakeCube = theCube
+    inputCube = theCube
     result = ''
     ######
     
     
-    if crossPattern(fakeCube) == True:
+    if crossPattern(inputCube) == True:
         return result
         
     
     ## if no yellow top yellow tiles
-    if noYellowPattern(fakeCube) == True:
+    if noYellowPattern(inputCube) == True:
         result += 'FURurf'
-        fakeCube._rotateF()
-        fakeCube._rotateU()
-        fakeCube._rotateR()
-        fakeCube._rotateu()
-        fakeCube._rotater()
-        fakeCube._rotatef()
+        inputCube._rotateF()
+        inputCube._rotateU()
+        inputCube._rotateR()
+        inputCube._rotateu()
+        inputCube._rotater()
+        inputCube._rotatef()
         
-    if crossPattern(fakeCube) == True:
+    if crossPattern(inputCube) == True:
         return result
         
         
     for _ in range(0,4):
         
         # Check if straight line pattern
-        if straightLinePattern(fakeCube) == "Vertical":     
+        if straightLinePattern(inputCube) == "Vertical":     
             result += 'FURurf'
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
            
-        elif straightLinePattern(fakeCube) == "Horizontal":      
+        elif straightLinePattern(inputCube) == "Horizontal":      
             result += 'UFURurf'
-            fakeCube._rotateU()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
+            inputCube._rotateU()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
     
         # check if we get Cross
-        if crossPattern(fakeCube) == True:
+        if crossPattern(inputCube) == True:
             return result
      
      
         #Check if we get double corner and middle tile pattern
-        if(doubleCornerPattern(fakeCube) == "topleft"):
+        if(doubleCornerPattern(inputCube) == "topleft"):
             result += 'FURurf'
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
-        elif(doubleCornerPattern(fakeCube) == "topright"):
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
+        elif(doubleCornerPattern(inputCube) == "topright"):
             result += 'uFURurf'
-            fakeCube._rotateu()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
-        elif(doubleCornerPattern(fakeCube) == "botright"):
+            inputCube._rotateu()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
+        elif(doubleCornerPattern(inputCube) == "botright"):
             result += 'UUFURurf'
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
-        elif(doubleCornerPattern(fakeCube) == "botleft"):
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
+        elif(doubleCornerPattern(inputCube) == "botleft"):
             result += 'UFURurf'
-            fakeCube._rotateU()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
+            inputCube._rotateU()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
             
         # check if we get Cross
-        if crossPattern(fakeCube) == True:
+        if crossPattern(inputCube) == True:
             return result    
             
-        if singleYellowPattern(fakeCube) == "top":
+        if singleYellowPattern(inputCube) == "top":
             result += 'FURurf'
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()
-        elif singleYellowPattern(fakeCube) == "right":
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()
+        elif singleYellowPattern(inputCube) == "right":
             result += 'uFURurf'
-            fakeCube._rotateu()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()   
-        elif singleYellowPattern(fakeCube) == "bottom":
+            inputCube._rotateu()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()   
+        elif singleYellowPattern(inputCube) == "bottom":
             result += 'UUFURurf'
-            fakeCube._rotateU()
-            fakeCube._rotateU()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef() 
-        elif singleYellowPattern(fakeCube) == "left":
+            inputCube._rotateU()
+            inputCube._rotateU()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef() 
+        elif singleYellowPattern(inputCube) == "left":
             result += 'UFURurf'
-            fakeCube._rotateU()
-            fakeCube._rotateF()
-            fakeCube._rotateU()
-            fakeCube._rotateR()
-            fakeCube._rotateu()
-            fakeCube._rotater()
-            fakeCube._rotatef()          
+            inputCube._rotateU()
+            inputCube._rotateF()
+            inputCube._rotateU()
+            inputCube._rotateR()
+            inputCube._rotateu()
+            inputCube._rotater()
+            inputCube._rotatef()          
                
-        if crossPattern(fakeCube) == True:
+        if crossPattern(inputCube) == True:
             return result                
         
     
     return result      
 
-def straightLinePattern(fakeCube):
-    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40]):
+def straightLinePattern(inputCube):
+    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
         return "Vertical"
-    elif (fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40]):
+    elif (inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40]):
         return "Horizontal"
     else:
         return "No"
     
-def crossPattern(fakeCube):
-    if (fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40] and  fakeCube.get()[43] == fakeCube.get()[40]):
+def crossPattern(inputCube):
+    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and  inputCube.get()[43] == inputCube.get()[40]):
         return True
 
-def doubleCornerPattern(fakeCube):
-    if(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[39] == fakeCube.get()[40]):
+def doubleCornerPattern(inputCube):
+    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40]):
         return "topleft"
-    elif(fakeCube.get()[37] == fakeCube.get()[40] and fakeCube.get()[41] == fakeCube.get()[40]):
+    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40]):
         return "topright"
-    elif(fakeCube.get()[41] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40]):
+    elif(inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
         return "botright"
-    elif(fakeCube.get()[39] == fakeCube.get()[40] and fakeCube.get()[43] == fakeCube.get()[40]):
+    elif(inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
         return "botleft"
     else:
         return "None"
     
-def singleYellowPattern(fakeCube):
-    if fakeCube.get()[37] == fakeCube.get()[40]:
+def singleYellowPattern(inputCube):
+    if inputCube.get()[37] == inputCube.get()[40]:
         return "top"
-    if fakeCube.get()[39] == fakeCube.get()[40]:
+    if inputCube.get()[39] == inputCube.get()[40]:
         return "left"
-    if fakeCube.get()[41] == fakeCube.get()[40]:
+    if inputCube.get()[41] == inputCube.get()[40]:
         return "right"
-    if fakeCube.get()[43] == fakeCube.get()[40]:
+    if inputCube.get()[43] == inputCube.get()[40]:
         return "bot"
 
-def noYellowPattern(fakeCube):
-    if (fakeCube.get()[37] != fakeCube.get()[40] and fakeCube.get()[43] != fakeCube.get()[40] and fakeCube.get()[39] != fakeCube.get()[40] and  fakeCube.get()[41] != fakeCube.get()[40]):
+def noYellowPattern(inputCube):
+    if (inputCube.get()[37] != inputCube.get()[40] and inputCube.get()[43] != inputCube.get()[40] and inputCube.get()[39] != inputCube.get()[40] and  inputCube.get()[41] != inputCube.get()[40]):
         return True   
     return False 
