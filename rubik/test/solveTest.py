@@ -217,7 +217,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[31], result.get('cube')[34])
             self.assertEqual(result.get('cube')[31], result.get('cube')[35])  
             
-    def test230_solve_getUpCross(self):
+    def test230_solve_getIntegrity(self):
             encodedCube = 'bbrbbggrbwgyorrwygowyygwybrbyrrorygwrobbyywogogowwogwo'
             parms = {}
             parms['cube'] = encodedCube

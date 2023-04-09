@@ -71,9 +71,13 @@ def solve(parms):
     # rotations += solveUpperLayer(theCube)       #iteration 6
     
     result['solution'] = rotations
-    result['status'] = 'ok'  
+    result['status'] = 'ok'    
     
-    ### Used to create integrity ###
+    result['integrity'] = createIntegrityString(theCube,rotations)               #iteration 3
+                   
+    return result
+
+def createIntegrityString(theCube, rotations):
     wordToToken = theCube.get() + rotations + 'jnt0024'
     sha256Hash = hashlib.sha256()
     sha256Hash.update(wordToToken.encode())
@@ -82,8 +86,5 @@ def solve(parms):
     integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
     #pick random substring from array 
     randomNum = random.randrange(8)
+    return integrityArray[randomNum]
     
-    
-    result['integrity'] = integrityArray[randomNum]                    #iteration 3
-                   
-    return result

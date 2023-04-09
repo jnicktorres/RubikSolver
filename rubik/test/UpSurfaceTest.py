@@ -13,7 +13,7 @@ import unittest
 class Test(unittest.TestCase):
 
 
-    def test160_solve_bottomlayer(self):
+    def test160_solve_UpperFace(self):
         encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
         parms = {}
         parms['cube'] = encodedCube
