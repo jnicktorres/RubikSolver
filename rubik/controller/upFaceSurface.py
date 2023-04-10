@@ -29,155 +29,62 @@ def solveUpSurface(theCube: Cube) -> str:
                 result+='U'
                 inputCube._rotateU()
             result += "RUrURUUr"
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("RUrURUUr")
         
-        # Checks for tree patters **************************************************
+        # Checks for tree patterns **************************************************
         elif treePattern(inputCube) == "up":
             result += "RUrURUUr"
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("RUrURUUr")
 
         elif treePattern(inputCube) == "right":
            
             result += "uRUrURUUr"
-            inputCube._rotateu()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("uRUrURUUr")
 
         elif treePattern(inputCube) == "down":
             result += "UURUrURUUr"
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("UURUrURUUr")
 
             
         elif treePattern(inputCube) == "left":
             result += "URUrURUUr"
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("URUrURUUr")
         #**************************************************
     
-        # Checks for Fish Patters **************************************************    
+        # Checks for Fish Patterns **************************************************    
     
         elif fishPattern(inputCube) == "topleft":
             result += "uRUrURUUr"
-            inputCube._rotateu()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("uRUrURUUr")
 
         elif fishPattern(inputCube) == "topright":
             result += "UURUrURUUr"
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("UURUrURUUr")
 
             
         elif fishPattern(inputCube) == "botright":
             result += "URUrURUUr"
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("URUrURUUr")
   
         elif fishPattern(inputCube) == "botleft":
             result += "RUrURUUr"
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("RUrURUUr")
         # **************************************************
         
         # Checks for Double Fish Pattern **************************************************
         elif doubleFishPattern(inputCube) == "leftdiagonal":
             result += "URUrURUUr"
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()
+            inputCube.rotate("URUrURUUr")
  
         elif doubleFishPattern(inputCube) == "rightdiagonal":
             result += "RUrURUUr"
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater() 
+            inputCube.rotate("RUrURUUr")
         # **************************************************
         
         #if we come across cross pattern with no left facing yellow tile
         else: 
             result += "RUrURUUr"
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotater()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotater()   
+            inputCube.rotate("RUrURUUr") 
     return result
 
 

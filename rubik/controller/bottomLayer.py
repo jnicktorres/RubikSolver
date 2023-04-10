@@ -26,27 +26,19 @@ def solveBottomLayer(theCube: Cube) -> str:
         
     ################## if white tiles are on bottom layer or white tile on bottom is wrong then move ########################################
         if (matchcol in inputCube.get()[6] or matchcol in inputCube.get()[35]) or (matchcol == inputCube.get()[45] and inputCube.get()[6] != inputCube.get()[4]):
-            inputCube._rotatel()
-            inputCube._rotateu()
-            inputCube._rotateL()
+            inputCube.rotate('luL') 
             result += 'luL'
             
                
         elif (matchcol in inputCube.get()[33] or matchcol in inputCube.get()[26]) or (matchcol == inputCube.get()[51] and inputCube.get()[33] != inputCube.get()[31]):
-            inputCube._rotateb()
-            inputCube._rotateu()
-            inputCube._rotateB()
+            inputCube.rotate('buB') 
             result += 'buB'
         elif  (matchcol in inputCube.get()[8] or matchcol in inputCube.get()[15]) or (matchcol == inputCube.get()[47] and inputCube.get()[15] != inputCube.get()[13]):
-            inputCube._rotatef()
-            inputCube._rotateu()
-            inputCube._rotateF()
+            inputCube.rotate('fuF') 
             result += 'fuF'
                
         elif  (matchcol in inputCube.get()[17] or matchcol in inputCube.get()[24]) or (matchcol == inputCube.get()[53] and inputCube.get()[24] != inputCube.get()[22]):
-            inputCube._rotater()
-            inputCube._rotateu()
-            inputCube._rotateR()
+            inputCube.rotate('ruR') 
             result += 'ruR'
         
              
@@ -56,24 +48,16 @@ def solveBottomLayer(theCube: Cube) -> str:
                 for _ in range(0,4):     
                     if inputCube.get()[36] == matchcol and inputCube.get()[51] != matchcol:
                         result += 'Lul'
-                        inputCube._rotateL()
-                        inputCube._rotateu()
-                        inputCube._rotatel()
+                        inputCube.rotate('Lul') 
                     elif inputCube.get()[38] == matchcol and inputCube.get()[53] != matchcol:
                         result += 'Bub'
-                        inputCube._rotateB()
-                        inputCube._rotateu()
-                        inputCube._rotateb()    
+                        inputCube.rotate('Bub')   
                     elif inputCube.get()[42] == matchcol and inputCube.get()[45] != matchcol:
                         result += 'Fuf'
-                        inputCube._rotateF()
-                        inputCube._rotateu()
-                        inputCube._rotatef()
+                        inputCube.rotate('Fuf')   
                     elif inputCube.get()[44] == matchcol and inputCube.get()[47] != matchcol:
                         result += 'Rur'
-                        inputCube._rotateR()
-                        inputCube._rotateu()
-                        inputCube._rotater()         
+                        inputCube.rotate('Rur')        
                     else:
                         result += 'U'
                         inputCube._rotateU()
@@ -88,31 +72,19 @@ def solveBottomLayer(theCube: Cube) -> str:
                     temp = inputCube.get()[29]
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):                    
-                            inputCube._rotateu()
-                            inputCube._rotateR()
-                            inputCube._rotateU()
-                            inputCube._rotater()               
+                            inputCube.rotate('uRUr')             
                             result += 'uRUr'
                             break    
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateF()
-                            inputCube._rotateU()
-                            inputCube._rotatef()
+                            inputCube.rotate('FUf') 
                             result += 'FUf'
                             break                      
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateu()
-                            inputCube._rotateu()
-                            inputCube._rotateB()
-                            inputCube._rotateU()
-                            inputCube._rotateb()
+                            inputCube.rotate('uuBUb') 
                             result += 'uuBUb'
                             break        
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateU()
-                            inputCube._rotateL()
-                            inputCube._rotateU()
-                            inputCube._rotatel()
+                            inputCube.rotate('ULUl') 
                             result += 'ULUl'
                             break
                             
@@ -121,33 +93,21 @@ def solveBottomLayer(theCube: Cube) -> str:
                     temp = inputCube.get()[20]
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):                    
-                            inputCube._rotateu()
-                            inputCube._rotateu()
-                            inputCube._rotateR()
-                            inputCube._rotateU()
-                            inputCube._rotater()               
+                            inputCube.rotate('uuRUr')             
                             result += 'uuRUr'
                             break    
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateu()
-                            inputCube._rotateF()
-                            inputCube._rotateU()
-                            inputCube._rotatef()
+                            inputCube.rotate('uFUf')
                             result += 'uFUf'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateU()
-                            inputCube._rotateB()
-                            inputCube._rotateU()
-                            inputCube._rotateb()
+                            inputCube.rotate('UBUb')  
                             result += 'UBUb'
                             break
                                 
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateL()
-                            inputCube._rotateU()
-                            inputCube._rotatel()
+                            inputCube.rotate('LUl')  
                             result += 'LUl'
                             break 
                             
@@ -157,33 +117,21 @@ def solveBottomLayer(theCube: Cube) -> str:
                             
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):                    
-                            inputCube._rotateU()
-                            inputCube._rotateR()
-                            inputCube._rotateU()
-                            inputCube._rotater()               
+                            inputCube.rotate('URUr')            
                             result += 'URUr'
                             break    
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateu()
-                            inputCube._rotateu()
-                            inputCube._rotateF()
-                            inputCube._rotateU()
-                            inputCube._rotatef()
+                            inputCube.rotate('uuFUf')   
                             result += 'uuFUf'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateB()
-                            inputCube._rotateU()
-                            inputCube._rotateb()
+                            inputCube.rotate('BUb')   
                             result += 'BUb'
                             break        
                         elif(inputCube.get()[c] == temp and c == 22):
                                 
-                            inputCube._rotateu()                            
-                            inputCube._rotateL()
-                            inputCube._rotateU()
-                            inputCube._rotatel()
+                            inputCube.rotate('uLUl')    
                             result += 'uLUl'
             
                             break
@@ -193,33 +141,21 @@ def solveBottomLayer(theCube: Cube) -> str:
                              
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):                    
-                            inputCube._rotateR()
-                            inputCube._rotateU()
-                            inputCube._rotater()               
+                            inputCube.rotate('RUr')              
                             result += 'RUr'
                             break
                                 
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateU()
-                            inputCube._rotateF()
-                            inputCube._rotateU()
-                            inputCube._rotatef()
+                            inputCube.rotate('UFUf')  
                             result += 'UFUf'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateu()   
-                            inputCube._rotateB()
-                            inputCube._rotateU()
-                            inputCube._rotateb()
+                            inputCube.rotate('uBUb')  
                             result += 'uBUb'
                             break        
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateu()
-                            inputCube._rotateu()                              
-                            inputCube._rotateL()
-                            inputCube._rotateU()
-                            inputCube._rotatel()
+                            inputCube.rotate('uuLUl')  
                             result += 'uuLUl'
                             break            
                 break
@@ -232,33 +168,21 @@ def solveBottomLayer(theCube: Cube) -> str:
                     temp = inputCube.get()[9]
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):                    
-                            inputCube._rotateU()
-                            inputCube._rotatel()
-                            inputCube._rotateu()
-                            inputCube._rotateL()               
+                            inputCube.rotate('UluL')               
                             result += 'UluL'
                             break
                                 
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotatef()
-                            inputCube._rotateu()
-                            inputCube._rotateF()
+                            inputCube.rotate('fuF') 
                             result += 'fuF'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateu()
-                            inputCube._rotater()
-                            inputCube._rotateu()
-                            inputCube._rotateR()
+                            inputCube.rotate('uruR') 
                             result += 'uruR'
                             break        
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateU()
-                            inputCube._rotateU()
-                            inputCube._rotateb()
-                            inputCube._rotateu()
-                            inputCube._rotateB()
+                            inputCube.rotate('UUbuB') 
                             result += 'UUbuB'
                             break
                             
@@ -266,33 +190,21 @@ def solveBottomLayer(theCube: Cube) -> str:
                     temp = inputCube.get()[18]
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):
-                            inputCube._rotateU()
-                            inputCube._rotateU()                    
-                            inputCube._rotatel()
-                            inputCube._rotateu()
-                            inputCube._rotateL()               
+                            inputCube.rotate('UUluL')             
                             result += 'UUluL'
                             break    
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateU()
-                            inputCube._rotatef()
-                            inputCube._rotateu()
-                            inputCube._rotateF()
+                            inputCube.rotate('UfuF')
                             result += 'UfuF'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotater()
-                            inputCube._rotateu()
-                            inputCube._rotateR()
+                            inputCube.rotate('ruR')
                             result += 'ruR'
                             break
                                     
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateu()
-                            inputCube._rotateb()
-                            inputCube._rotateu()
-                            inputCube._rotateB()
+                            inputCube.rotate('ubuB')
                             result += 'ubuB'
                             break
                              
@@ -303,67 +215,44 @@ def solveBottomLayer(theCube: Cube) -> str:
                             
                     for c in centers:
                         if(inputCube.get()[c] == temp and c == 4):
-                            inputCube._rotateu()                   
-                            inputCube._rotatel()
-                            inputCube._rotateu()
-                            inputCube._rotateL()               
+                            inputCube.rotate('uluL')            
                             result += 'uluL'
                             break
                             
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateU()
-                            inputCube._rotateU()
-                            inputCube._rotatef()
-                            inputCube._rotateu()
-                            inputCube._rotateF()
+                            inputCube.rotate('UUfuF')
                             result += 'UUfuF'
                             break        
                                     
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateU()
-                            inputCube._rotater()
-                            inputCube._rotateu()
-                            inputCube._rotateR()
+                            inputCube.rotate('UruR')
                             result += 'UruR'
                             break
                                 
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateb()
-                            inputCube._rotateu()
-                            inputCube._rotateB()
+                            inputCube.rotate('buB')    
                             result += 'buB'
                             break
                 else:
                     temp = inputCube.get()[0]
                     for c in centers:     
-                        if(inputCube.get()[c] == temp and c == 4):                 
-                            inputCube._rotatel()
-                            inputCube._rotateu()
-                            inputCube._rotateL()               
+                        if(inputCube.get()[c] == temp and c == 4):  
+                            inputCube.rotate('luL')                             
                             result += 'luL'
-                            break            
+                            break     
+                               
                         elif(inputCube.get()[c] == temp and c == 13):
-                            inputCube._rotateu()
-                            inputCube._rotatef()
-                            inputCube._rotateu()
-                            inputCube._rotateF()
+                            inputCube.rotate('ufuF')
                             result += 'ufuF'
                             break            
                                         
                         elif(inputCube.get()[c] == temp and c == 22):
-                            inputCube._rotateU()
-                            inputCube._rotateU()
-                            inputCube._rotater()
-                            inputCube._rotateu()
-                            inputCube._rotateR()
+                            inputCube.rotate('UUruR')
                             result += 'UUruR'
                             break
                                     
                         elif(inputCube.get()[c] == temp and c == 31):
-                            inputCube._rotateU()
-                            inputCube._rotateb()
-                            inputCube._rotateu()
-                            inputCube._rotateB()
+                            inputCube.rotate('UbuB')
                             result += 'UbuB'
                             break          
                 break

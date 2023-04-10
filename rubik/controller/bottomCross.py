@@ -58,9 +58,7 @@ def solveBottomCross(theCube: Cube) -> str:
                 for _ in range(0, num):
                     inputCube._rotateU()
                     result += 'U'
-                inputCube._rotateF() 
-                inputCube._rotateu()  
-                inputCube._rotateR()    
+                inputCube.rotate('FuR')
                 result += 'FuR'
             num += 1
         

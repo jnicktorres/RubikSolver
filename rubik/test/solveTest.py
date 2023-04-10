@@ -350,7 +350,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
             self.assertEqual(result.get('cube')[40], result.get('cube')[44])
     def test270_solve_upperFace2(self):
-            encodedCube = 'yggwbbroorwworrybwrrobgogrgworgobyygbybyygbrwywbgwyowo'
+            encodedCube = 'ggbobwrywyowrrwbowbbrggwggygbwboyobyyyooywryobrrrwggro'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)
@@ -392,8 +392,9 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[42])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
             self.assertEqual(result.get('cube')[40], result.get('cube')[44])
+            
     def test280_solve_topCorners(self):
-            encodedCube = 'yggwbbroorwworrybwrrobgogrgworgobyygbybyygbrwywbgwyowo'
+            encodedCube = 'ggbobwrywyowrrwbowbbrggwggygbwboyobyyyooywryobrrrwggro'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)
@@ -422,7 +423,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[13], result.get('cube')[16])
             self.assertEqual(result.get('cube')[13], result.get('cube')[17])
             self.assertEqual(result.get('cube')[22], result.get('cube')[18])
-            self.assertEqual(result.get('cube')[22], result.get('cube')[19])
+            self.assertEqual(result.get('cube')[22], result.get('cube')[20])
             self.assertEqual(result.get('cube')[22], result.get('cube')[21])
             self.assertEqual(result.get('cube')[22], result.get('cube')[23])
             self.assertEqual(result.get('cube')[22], result.get('cube')[24])
