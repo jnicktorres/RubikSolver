@@ -18,7 +18,9 @@ def solveUpperLayer(theCube: Cube) -> str:
     leftFace = inputCube.get()[31]
     currentColor = 4
     ######
-        #Check to see if we have any faces with double corners and if we do rotate the to same color
+    
+    
+    # Does the Top Corners Method *******************************
 
     while checkTopCorners(inputCube) == False:
         if checkTopCorners(inputCube) == True:
@@ -151,7 +153,11 @@ def solveUpperLayer(theCube: Cube) -> str:
             else:
                 result += 'lURuLUrRUrURUUr'
                 inputCube.rotate("lURuLUrRUrURUUr")
-                
+    # **********************************        
+    
+    # Solve for the Top Layer
+    
+    
     return result    
      
         
@@ -161,6 +167,33 @@ def checkTopCorners(inputCube):
             if(inputCube.get()[18] == inputCube.get()[22] and inputCube.get()[20] == inputCube.get()[22]):
                 if(inputCube.get()[27] == inputCube.get()[31] and inputCube.get()[29] == inputCube.get()[31]):
                     return True
-    return False          
+    return False
+
+# If we find full face, tell which direction it is
+def checkFullFace(inputCube):
+    frontFace = inputCube.get()[4]
+    rightFace = inputCube.get()[13]
+    backFace = inputCube.get()[22]
+    leftFace = inputCube.get()[31]
+    
+    if (inputCube.get()[0] == frontFace and inputCube.get()[1] == frontFace and inputCube.get[2] == frontFace):
+        return "front"
+    elif (inputCube.get()[9] == rightFace and inputCube.get()[10] == rightFace and inputCube.get[11] == rightFace):
+        return "right"
+    elif (inputCube.get()[18] == backFace and inputCube.get()[19] == backFace and inputCube.get[20] == backFace):
+        return "back"
+    elif (inputCube.get()[27] == leftFace and inputCube.get()[28] == leftFace and inputCube.get[29] == leftFace):
+        return "left"
+
+    return "no face"
+
+def isFinishedCube(inputCube):
+    if(inputCube.get()[45] == inputCube.get()[49] and inputCube.get()[46] == inputCube.get()[49] and inputCube.get()[47] == inputCube.get()[49] and inputCube.get()[48] == inputCube.get()[49] and inputCube.get()[50] == inputCube.get()[49] and inputCube.get()[51] == inputCube.get()[49] and inputCube.get()[52] == inputCube.get()[49] and inputCube.get()[53] == inputCube.get()[49]):
+        if(inputCube.get()[0] == inputCube.get()[4] and inputCube.get()[1] == inputCube.get()[4] and inputCube.get()[2] == inputCube.get()[4]and inputCube.get()[3] == inputCube.get()[4] and inputCube.get()[5] == inputCube.get()[4] and inputCube.get()[6] == inputCube.get()[4] and inputCube.get()[7] == inputCube.get()[4] and inputCube.get()[8] == inputCube.get()[4]):
+            if(inputCube.get()[9] == inputCube.get()[13] and inputCube.get()[10] == inputCube.get()[13] and inputCube.get()[11] == inputCube.get()[13] and inputCube.get()[12] == inputCube.get()[13] and inputCube.get()[14] == inputCube.get()[13] and inputCube.get()[15] == inputCube.get()[13] and inputCube.get()[16] == inputCube.get()[13] and inputCube.get()[17] == inputCube.get()[13]):
+                if(inputCube.get()[18] == inputCube.get()[22] and inputCube.get()[19] == inputCube.get()[22] and inputCube.get()[20] == inputCube.get()[22] and inputCube.get()[21] == inputCube.get()[22] and inputCube.get()[23] == inputCube.get()[22] and inputCube.get()[24] == inputCube.get()[22] and inputCube.get()[25] == inputCube.get()[22] and inputCube.get()[26] == inputCube.get()[22]):
+                    if(inputCube.get()[27] == inputCube.get()[31] and inputCube.get()[28] == inputCube.get()[31] and inputCube.get()[29] == inputCube.get()[31] and inputCube.get()[30] == inputCube.get()[31] and inputCube.get()[32] == inputCube.get()[31] and inputCube.get()[33] == inputCube.get()[31] and inputCube.get()[34] == inputCube.get()[31] and inputCube.get()[35] == inputCube.get()[31]):
+                        return True
+
     
 
