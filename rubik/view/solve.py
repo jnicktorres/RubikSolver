@@ -68,7 +68,7 @@ def solve(parms):
     rotations += solveUpCross(theCube)          #iteration 5
     rotations += solveUpSurface(theCube)        #iteration 5
     rotations += solveUpperLayer(theCube)       #iteration 6
-    print(theCube.get())
+    
     
     result['solution'] = rotations
     result['status'] = 'ok'    

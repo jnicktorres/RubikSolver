@@ -157,6 +157,27 @@ def solveUpperLayer(theCube: Cube) -> str:
     
     # Solve for the Top Layer
     
+    while isFinishedCube(inputCube) != True:
+        if checkFullFace(inputCube) == "front":
+            result += "BBulRBBrLuBB"
+            inputCube.rotate("BBulRBBrLuBB")
+            
+        elif checkFullFace(inputCube) == "right":
+            
+            result += "LLufBLLbFuLL"
+            inputCube.rotate("LLufBLLbFuLL")
+            
+        elif checkFullFace(inputCube) == "back":
+            result += "FFurLFFlRuFF"
+            inputCube.rotate("FFurLFFlRuFF")
+            
+        elif checkFullFace(inputCube) == "left":
+            result += "RRubFRRfBuRR"
+            inputCube.rotate("RRubFRRfBuRR")
+            
+        elif checkFullFace(inputCube) == "no face":
+            result += "FFurLFFlRuFF"
+            inputCube.rotate("FFurLFFlRuFF")
     
     return result    
      
@@ -176,13 +197,13 @@ def checkFullFace(inputCube):
     backFace = inputCube.get()[22]
     leftFace = inputCube.get()[31]
     
-    if (inputCube.get()[0] == frontFace and inputCube.get()[1] == frontFace and inputCube.get[2] == frontFace):
+    if (inputCube.get()[0] == frontFace and inputCube.get()[1] == frontFace and inputCube.get()[2] == frontFace):
         return "front"
-    elif (inputCube.get()[9] == rightFace and inputCube.get()[10] == rightFace and inputCube.get[11] == rightFace):
+    elif (inputCube.get()[9] == rightFace and inputCube.get()[10] == rightFace and inputCube.get()[11] == rightFace):
         return "right"
-    elif (inputCube.get()[18] == backFace and inputCube.get()[19] == backFace and inputCube.get[20] == backFace):
+    elif (inputCube.get()[18] == backFace and inputCube.get()[19] == backFace and inputCube.get()[20] == backFace):
         return "back"
-    elif (inputCube.get()[27] == leftFace and inputCube.get()[28] == leftFace and inputCube.get[29] == leftFace):
+    elif (inputCube.get()[27] == leftFace and inputCube.get()[28] == leftFace and inputCube.get()[29] == leftFace):
         return "left"
 
     return "no face"

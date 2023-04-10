@@ -495,7 +495,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[42])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
             self.assertEqual(result.get('cube')[40], result.get('cube')[44])        
-    def test290_solve_FinsishedCube(self):
+    def test290_solve_FinishedCube(self):
             encodedCube = 'ggbobwrywyowrrwbowbbrggwggygbwboyobyyyooywryobrrrwggro'
             parms = {}
             parms['cube'] = encodedCube
