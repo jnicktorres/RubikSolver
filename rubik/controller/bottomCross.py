@@ -34,6 +34,7 @@ def solveBottomCross(theCube: Cube) -> str:
         if hasDaisyOnTop(inputCube,matchcol) == True:
             break
 
+        #Checks under squares for white tiles, if we find then flip to top
         for tile in underSquares:
             if inputCube.get()[tile] == matchcol and hasDaisyOnTop(inputCube,matchcol) == False:                
                 if tile == 46:
@@ -69,7 +70,8 @@ def solveBottomCross(theCube: Cube) -> str:
         count = 0     #Keeps track of how many rotations is needed for up
         if hasDaisyOnTop(inputCube,matchcol) == True:
             break
-        # finds colors in top row of middle squares
+        
+        # finds white tiles in top row of middle squares
         for tile in topMiddleSquares:
             if inputCube.get()[tile] == matchcol:
                 for _ in range(0, count):
@@ -83,7 +85,7 @@ def solveBottomCross(theCube: Cube) -> str:
         if hasDaisyOnTop(inputCube,matchcol) == True:
             break
         
-        # finds colors in middle rows of middle squares
+        # finds white tiles in middle rows of middle squares
         for tile in middleSquares:
             if inputCube.get()[tile] == matchcol:
                 ######  left and right of front face
@@ -150,7 +152,8 @@ def solveBottomCross(theCube: Cube) -> str:
 
         if hasDaisyOnTop(inputCube,matchcol) == True:
             break    
-
+        
+        #Finds tiles in bot middle squares for white squares
         for tile in botMiddleSquares:
             if inputCube.get()[tile] == matchcol and hasDaisyOnTop(inputCube,matchcol) == False:
                 if tile == 7: 

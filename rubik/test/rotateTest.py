@@ -59,3 +59,10 @@ class RotateTest(TestCase):
         parms['dir'] = ''
         result = rotate(parms)
         self.assertEqual('bbbbbbbbbyrryrryrroooooooooggwggwggwyyyyyygggrrrwwwwww', result['cube'])
+    def test180_rotate_validateCube_WrongDirection2(self):
+        encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
+        parms = {}
+        parms['cube'] = encodedCube
+        parms['dir'] = 'd'
+        result = rotate(parms)
+        self.assertEqual('error: Invalid Directions', result['status'])
