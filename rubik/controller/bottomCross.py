@@ -1,6 +1,6 @@
 import rubik.model.constants
 from rubik.model.cube import Cube
-from pickle import FALSE
+from pickle import FALSE, TRUE
 from re import match
 
 def solveBottomCross(theCube: Cube) -> str:
@@ -15,67 +15,86 @@ def solveBottomCross(theCube: Cube) -> str:
     #### Variables
     
     inputCube = theCube
-    matchcol = inputCube.get()[49] # color to be matched
+    matchcol = inputCube.get()[49] # color to be matched which is the bottom
     frontCenterColor = inputCube.get()[4]
     rightCenterColor = inputCube.get()[13]
     backCenterColor = inputCube.get()[22]
     leftCenterColor = inputCube.get()[31]
-    
     result = ""
     underSquares = [46,48,50,52] # in underneath squares
     topMiddleSquares = [1, 10, 19, 28]# in top row of middle squares
     middleSquares = [32, 12, 5, 21, 14, 30, 23, 3]     # in middle row of middle squares
     botMiddleSquares = [7, 16, 25, 34] # in bottom row of middle squares
     
+    
     ##########################################################
     
-    for _ in range(0,4):
-        num = 0 #keeps track of amount of times we find an eligible square in the same orientation
+    while hasDaisyOnTop(inputCube,matchcol) == False:
         
-        #solves middle daisy squares if directly underneath
-        for i in underSquares:
-            if inputCube.get()[i] == matchcol:
-                for _ in range(0, num):
-                    inputCube._rotateD()
-                    result += 'D'
-                    
-                while inputCube.get()[43] == matchcol:
-                    inputCube._rotateU()
-                    result += 'U'
-                    
-                inputCube._rotateF()
-                inputCube._rotateF()
-                result += 'FF'
-                break
-            num+= 1            
+        if hasDaisyOnTop(inputCube,matchcol) == True:
+            break
 
+        for tile in underSquares:
+            if inputCube.get()[tile] == matchcol and hasDaisyOnTop(inputCube,matchcol) == False:                
+                if tile == 46:
+                    while inputCube.get()[43] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube.rotate('FF')
+                    result += 'FF'
+                    break
+                elif tile == 50:
+                    while inputCube.get()[41] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube.rotate('RR')
+                    result += 'RR'
+                    break
+                elif tile == 52:
+                    while inputCube.get()[37] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube.rotate('BB')
+                    result += 'BB'
+                    break
+                    
+                elif tile == 48:
+                    while inputCube.get()[39] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube.rotate('LL')
+                    result += 'LL'
+                    break
              
-        num = 0
-        
+        count = 0     #Keeps track of how many rotations is needed for up
+        if hasDaisyOnTop(inputCube,matchcol) == True:
+            break
         # finds colors in top row of middle squares
-        for i in topMiddleSquares:
-            if inputCube.get()[i] == matchcol:
-                for _ in range(0, num):
+        for tile in topMiddleSquares:
+            if inputCube.get()[tile] == matchcol:
+                for _ in range(0, count):
                     inputCube._rotateU()
                     result += 'U'
                 inputCube.rotate('FuR')
                 result += 'FuR'
-            num += 1
+            count += 1
         
-        num = 0
+        count = 0
+        if hasDaisyOnTop(inputCube,matchcol) == True:
+            break
         
         # finds colors in middle rows of middle squares
-        for i in middleSquares:
-            if inputCube.get()[i] == matchcol:
+        for tile in middleSquares:
+            if inputCube.get()[tile] == matchcol:
                 ######  left and right of front face
-                if i == 32:
+                if tile == 32:
                     while inputCube.get()[43] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
                     inputCube._rotateF()
                     result += 'F'
                     
-                elif i == 12:
+                elif tile == 12:
                     while inputCube.get()[43] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
@@ -83,14 +102,14 @@ def solveBottomCross(theCube: Cube) -> str:
                     result += 'f'
                 
                 ###### left and right of front of left face                     
-                elif i == 5:
+                elif tile == 5:
                     while inputCube.get()[41] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
                     inputCube._rotateR()
                     result += 'R' 
                     
-                elif i == 21:
+                elif tile == 21:
                     while inputCube.get()[41] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
@@ -98,14 +117,14 @@ def solveBottomCross(theCube: Cube) -> str:
                     result += 'r' 
                 
                 ###### left and right of back of face      
-                elif i == 14:
+                elif tile == 14:
                     while inputCube.get()[37] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
                     inputCube._rotateB()
                     result += 'B'
                     
-                elif i == 30: 
+                elif tile == 30: 
                     while inputCube.get()[37] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
@@ -113,14 +132,14 @@ def solveBottomCross(theCube: Cube) -> str:
                     result += 'b'
                     
                 ###### left and right of back of left face      
-                elif i == 23:
+                elif tile == 23:
                     while inputCube.get()[39] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
                     inputCube._rotateL()
                     result += 'L'
                     
-                elif i == 3: 
+                elif tile == 3: 
                     while inputCube.get()[39] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
@@ -129,24 +148,50 @@ def solveBottomCross(theCube: Cube) -> str:
                 break  
                   
 
-            # finds colors in bottom row of middle squares
-        for i in botMiddleSquares:
-            if inputCube.get()[i] == matchcol:
-                for _ in range(0, num):
-                    inputCube._rotateD()
-                    result += 'D'
-                
-                while inputCube.get()[43] == matchcol:
-                    inputCube._rotateU()
-                    result += 'U'
+        if hasDaisyOnTop(inputCube,matchcol) == True:
+            break    
+
+        for tile in botMiddleSquares:
+            if inputCube.get()[tile] == matchcol and hasDaisyOnTop(inputCube,matchcol) == False:
+                if tile == 7: 
+                    while inputCube.get()[43] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube._rotateF() 
+                    inputCube._rotateU()  
+                    inputCube._rotatel()    
+                    result += 'FUl'
                     
-                inputCube._rotateF() 
-                inputCube._rotateU()  
-                inputCube._rotatel()    
-                result += 'FUl'
-            num += 1    
+                elif tile == 16: 
+                    while inputCube.get()[41] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube._rotateR() 
+                    inputCube._rotateU()  
+                    inputCube._rotatef()    
+                    result += 'RUf'    
+                    
+                elif tile == 25: 
+                    while inputCube.get()[37] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube._rotateB() 
+                    inputCube._rotateU()  
+                    inputCube._rotater()    
+                    result += 'BUr' 
+                    
+                elif tile == 34: 
+                    while inputCube.get()[39] == matchcol:
+                        inputCube._rotateU()
+                        result += 'U'
+                    inputCube._rotateL() 
+                    inputCube._rotateU()  
+                    inputCube._rotateb()    
+                    result += 'LUb' 
+                
+                      
         ## if we find daisy then break
-        if (inputCube.get()[37] == matchcol and inputCube.get()[39] == matchcol and inputCube.get()[41] == matchcol and inputCube.get()[43] == matchcol):
+        if hasDaisyOnTop(inputCube,matchcol) == True:
             break
             
         
@@ -188,3 +233,10 @@ def solveBottomCross(theCube: Cube) -> str:
     ##############################               
                  
     return result 
+
+
+
+def hasDaisyOnTop(inputCube,matchcol):
+    if (inputCube.get()[37] == matchcol and inputCube.get()[39] == matchcol and inputCube.get()[41] == matchcol and inputCube.get()[43] == matchcol):
+        return True
+    return False
