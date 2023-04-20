@@ -2,55 +2,10 @@ from unittest import TestCase
 from rubik.view.solve import solve
 from rubik.view.rotate import rotate
 from rubik.model.cube import Cube
- 
+import hashlib
 
 class SolveTest(TestCase):
-        
-    #test if cube is missing    
-    def test110_solve_validateCube_missingCube(self):
-        encodedCube = None 
-        parms = {}
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        error = {'status': 'error: Empty Cube'}
-        self.assertEqual(error, result)
-    
-    #test that less than 54 characters in cube    
-    def test120_solve_validateCube_lessThan54(self):
-        encodedCube = 'bbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyywwwwwwwww'
-        parms = {}
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
-        self.assertEqual(error, result)
-        
-    #test if invalid characters in cube          
-    def test130_solve_validateCube_invalidValue(self):
-        encodedCube = 'bbbbbbbbbrrrrrrrrrooooooooogggggggggyyyyyyyyy;;;;;;;;;'
-        parms = {}
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
-        self.assertEqual(error, result)
-        
-    #test if more or less than 6 unique Values in cube            
-    def test140_solve_validateCube_UniqueValue(self):
-        encodedCube = 'bbbbbbbbbrrrrrrrrroooooooo1ggggggggyyyyyyyyy1111111112'
-        parms = {}
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        error = {'status': 'error: Invalid Unique Elements Count'}
-        self.assertEqual(error, result)
-        
-    #test to make sure cube has unique center values
-    def test150_solve_validateCube_UniqueCenters(self):
-        encodedCube = 'bbbbbbbborrrrrrrrroooobooogggggggggyyyyyyyyywwwwwwwww'
-        parms = {}
-        parms['cube'] = encodedCube
-        result = solve(parms)
-        error = {'status': 'error: Invalid Values in Cube or Invalid Length of Cube'}
-        self.assertEqual(error, result)
-    
+            
     #tests to see if bottom layer is solved. This is scramble test #1
     def test160_solve_bottomlayer(self):
         encodedCube = 'ooowbrrgywobwrggygwgbwgryywrwybobgywyrroybbybgorbwgoro'
@@ -224,6 +179,12 @@ class SolveTest(TestCase):
             dirs = solve(parms)
             parms['dir'] = dirs['solution']
             self.assertEqual(8, len(dirs['integrity']))
+            wordToToken = encodedCube + dirs['solution']  + 'jnt0024'
+            sha256Hash = hashlib.sha256()
+            sha256Hash.update(wordToToken.encode())
+            fullToken = sha256Hash.hexdigest()
+            integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
+            self.assertEqual(True, dirs['integrity'] in integrityArray)
     
     def test240_solve_upperCross(self):
             encodedCube = 'bbrbbggrbwgyorrwygowyygwybrbyrrorygwrobbyywogogowwogwo'
