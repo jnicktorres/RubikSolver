@@ -664,21 +664,14 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
             self.assertEqual(result.get('cube')[40], result.get('cube')[44])
             
+    
     def test320_solve_isFinishedCube4(self):
-            encodedCube = 'yyyrbgwbbborwrrwbrbygwggyrowyooogyrgobwgywgorrwobwobyg'
+            encodedCube = 'UituBBttkBukuUUtkiuUBiittkUuBuBkUBuUktiUukikkBiiittuBU'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)
             parms['dir'] = dirs['solution']
             result = rotate(parms)
-            self.assertEqual('w', result.get('cube')[45])
-            self.assertEqual('w', result.get('cube')[46])
-            self.assertEqual('w', result.get('cube')[47])
-            self.assertEqual('w', result.get('cube')[48])
-            self.assertEqual('w', result.get('cube')[50])
-            self.assertEqual('w', result.get('cube')[51])
-            self.assertEqual('w', result.get('cube')[52])
-            self.assertEqual('w', result.get('cube')[53])
             self.assertEqual(result.get('cube')[4], result.get('cube')[0])
             self.assertEqual(result.get('cube')[4], result.get('cube')[1])
             self.assertEqual(result.get('cube')[4], result.get('cube')[2])
@@ -718,5 +711,15 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[41])
             self.assertEqual(result.get('cube')[40], result.get('cube')[42])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
-            self.assertEqual(result.get('cube')[40], result.get('cube')[44])   
+            self.assertEqual(result.get('cube')[40], result.get('cube')[44])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[45])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[46])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[47])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[48])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[50])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[51])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[52])
+            self.assertEqual(result.get('cube')[49], result.get('cube')[53])
+            
+    
 
