@@ -157,36 +157,30 @@ def solveBottomCross(theCube: Cube) -> str:
                     while inputCube.get()[43] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
-                    inputCube._rotateF() 
-                    inputCube._rotateU()  
-                    inputCube._rotatel()    
+                        
+                    inputCube.rotate('FUl')     
                     result += 'FUl'
                     
                 elif tile == 16: 
                     while inputCube.get()[41] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
-                    inputCube._rotateR() 
-                    inputCube._rotateU()  
-                    inputCube._rotatef()    
+                        
+                    inputCube.rotate('RUf')   
                     result += 'RUf'    
                     
                 elif tile == 25: 
                     while inputCube.get()[37] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
-                    inputCube._rotateB() 
-                    inputCube._rotateU()  
-                    inputCube._rotater()    
+                    inputCube.rotate('BUr')   
                     result += 'BUr' 
                     
                 elif tile == 34: 
                     while inputCube.get()[39] == matchcol:
                         inputCube._rotateU()
                         result += 'U'
-                    inputCube._rotateL() 
-                    inputCube._rotateU()  
-                    inputCube._rotateb()    
+                    inputCube.rotate('LUb') 
                     result += 'LUb' 
                 
                       
