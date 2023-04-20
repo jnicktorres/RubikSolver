@@ -109,7 +109,7 @@ def solveUpperLayer(theCube: Cube) -> str:
         #Solving for left Face    
         elif inputCube.get()[27] == inputCube.get()[29]:
             if inputCube.get()[27] == frontFace:
-                result += "ufUBuFUb"
+                result += "ufUBuFUbBUbUBUUb"
                 inputCube._rotateu() 
                 if(checkTopCorners(inputCube) == True):
                     break
