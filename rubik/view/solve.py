@@ -17,7 +17,7 @@ def solve(parms):
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
     
-    #Cube we will use for integrity
+    #Cube we will use for integrity since we are manipulating other instance of cube
     integrityCube = Cube(encodedCube)
 ########### This part of the code is used to validate that cube is has correct colors ######   
    
@@ -87,7 +87,7 @@ def createIntegrityString(integrityCube, rotations):
     #getting all possible substrings of length 8 from fullToken
     integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
     #pick random substring from array 
-    randomNum = random.randrange(58)
+    randomNum = random.randrange(57)
     return integrityArray[randomNum]
 
     
