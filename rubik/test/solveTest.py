@@ -218,7 +218,7 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[31], result.get('cube')[35])  
             
     def test230_solve_getIntegrity(self):
-            encodedCube = 'bbrbbggrbwgyorrwygowyygwybrbyrrorygwrobbyywogogowwogwo'
+            encodedCube = 'UU1mM1M2mU22g22MgmUU21UMgMm11m2gMU11Mm1M1U2gggm2UmmggM'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)

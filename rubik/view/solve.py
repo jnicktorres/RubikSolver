@@ -17,6 +17,8 @@ def solve(parms):
     encodedCube = parms.get('cube')
     theCube = Cube(encodedCube)
     
+    #Cube we will use for integrity
+    integrityCube = Cube(encodedCube)
 ########### This part of the code is used to validate that cube is has correct colors ######   
    
     checkUnique = {}
@@ -73,18 +75,19 @@ def solve(parms):
     result['solution'] = rotations
     result['status'] = 'ok'    
     
-    result['integrity'] = createIntegrityString(theCube,rotations)               #iteration 3
+    result['integrity'] = createIntegrityString(integrityCube,rotations)               #iteration 3
                    
     return result
 
-def createIntegrityString(theCube, rotations):
-    wordToToken = theCube.get() + rotations + 'jnt0024'
+def createIntegrityString(integrityCube, rotations):
+    wordToToken = integrityCube.get() + rotations + 'jnt0024'
     sha256Hash = hashlib.sha256()
     sha256Hash.update(wordToToken.encode())
     fullToken = sha256Hash.hexdigest()
     #getting all possible substrings of length 8 from fullToken
     integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
     #pick random substring from array 
-    randomNum = random.randrange(8)
+    randomNum = random.randrange(58)
     return integrityArray[randomNum]
+
     
