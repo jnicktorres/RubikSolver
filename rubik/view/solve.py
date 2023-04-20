@@ -74,9 +74,7 @@ def solve(parms):
     
     result['solution'] = rotations
     result['status'] = 'ok'    
-    
-    result['integrity'] = createIntegrityString(integrityCube,rotations)               #iteration 3
-                   
+    result['integrity'] = createIntegrityString(integrityCube,rotations)               #iteration 5                
     return result
 
 def createIntegrityString(integrityCube, rotations):

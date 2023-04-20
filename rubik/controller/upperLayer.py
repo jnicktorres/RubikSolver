@@ -23,11 +23,7 @@ def solveUpperLayer(theCube: Cube) -> str:
     # Does the Top Corners Method *******************************
 
     while checkTopCorners(inputCube) == False:
-        if checkTopCorners(inputCube) == True:
-            break
-        
-        if inputCube.get()[0] == inputCube.get()[2]:
-            
+        if inputCube.get()[0] == inputCube.get()[2]:   
             if inputCube.get()[0] == frontFace:
                 result += "fUBuFUbBUbUBUUb"
                 inputCube.rotate("fUBuFUbBUbUBUUb") 
@@ -35,23 +31,17 @@ def solveUpperLayer(theCube: Cube) -> str:
             elif inputCube.get()[0] == rightFace:
                 result += "urULuRUlLUlULUUl"
                 inputCube._rotateu()
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("rULuRUlLUlULUUl")  
                      
             elif inputCube.get()[0] == backFace:
                 result += 'uubUFuBUfFUfUFUUf'
                 inputCube._rotateu() 
                 inputCube._rotateu() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                 
             elif inputCube.get()[0] == leftFace:
                 result += 'UlURuLUrRUrURUUr'
                 inputCube._rotateU() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("lURuLUrRUrURUUr")
                 
         #Solving for Right Face                          
@@ -59,8 +49,6 @@ def solveUpperLayer(theCube: Cube) -> str:
             if inputCube.get()[9] == frontFace:
                 result += "UfUBuFUbBUbUBUUb"
                 inputCube._rotateU() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("fUBuFUbBUbUBUUb")  
                 
             elif inputCube.get()[9] == rightFace:
@@ -70,16 +58,12 @@ def solveUpperLayer(theCube: Cube) -> str:
             elif inputCube.get()[9] == backFace:
                 result += 'ubUFuBUfFUfUFUUf'
                 inputCube._rotateu() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                 
             elif inputCube.get()[9] == leftFace:
                 result += 'uulURuLUrRUrURUUr'
                 inputCube._rotateu()
                 inputCube._rotateu()
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("lURuLUrRUrURUUr")
                 
         #Solving for Back Face            
@@ -88,14 +72,11 @@ def solveUpperLayer(theCube: Cube) -> str:
                 result += "uufUBuFUbBUbUBUUb"
                 inputCube._rotateu() 
                 inputCube._rotateu() 
-                if(checkTopCorners(inputCube) == True):
-                    break
-                inputCube.rotate("fUBuFUbBUbUBUUb")     
+                inputCube.rotate("fUBuFUbBUbUBUUb") 
+                    
             elif inputCube.get()[18] == rightFace:
                 result += 'UrULuRUlLUlULUUl'
                 inputCube._rotateU() 
-                if(checkTopCorners(inputCube) == True):
-                    break  
                 inputCube.rotate("rULuRUlLUlULUUl")
                     
             elif inputCube.get()[18] == backFace:
@@ -103,32 +84,24 @@ def solveUpperLayer(theCube: Cube) -> str:
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                  
             elif inputCube.get()[18] == leftFace:
-                result += 'ulURuLUrRUrUrUUr'
+                result += 'ulURuLUrRUrURUUr'
                 inputCube._rotateu()
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("lURuLUrRUrURUUr")
         
         #Solving for left Face    
         elif inputCube.get()[27] == inputCube.get()[29]:
             if inputCube.get()[27] == frontFace:
-                result += "ufUBuFUb"
+                result += "ufUBuFUbBUbUBUUb"
                 inputCube._rotateu() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("fUBuFUbBUbUBUUb")       
             elif inputCube.get()[27] == rightFace:
                 result += "uurULuRUlLUlULUUl"
                 inputCube._rotateu()   
                 inputCube._rotateu()
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate("rULuRUlLUlULUUl")      
             elif inputCube.get()[27] == backFace:
                 result += 'bUFuBUfFUfUFUUf'
                 inputCube._rotateU() 
-                if(checkTopCorners(inputCube) == True):
-                    break
                 inputCube.rotate('bUFuBUfFUfUFUUf')
             elif inputCube.get()[27] == leftFace:
                 result += 'lURuLUrRUrURUUr'
@@ -154,32 +127,32 @@ def solveUpperLayer(theCube: Cube) -> str:
                 result += 'lURuLUrRUrURUUr'
                 inputCube.rotate("lURuLUrRUrURUUr")
     # **********************************        
-    
+
     # Solve for the Top Layer
-    
-    while isFinishedCube(inputCube) != True:
+
+    while isFinishedCube(inputCube) == False:
         if checkFullFace(inputCube) == "front":
             result += "BBulRBBrLuBB"
             inputCube.rotate("BBulRBBrLuBB")
-            
+
         elif checkFullFace(inputCube) == "right":
-            
+
             result += "LLufBLLbFuLL"
             inputCube.rotate("LLufBLLbFuLL")
-            
+
         elif checkFullFace(inputCube) == "back":
             result += "FFurLFFlRuFF"
             inputCube.rotate("FFurLFFlRuFF")
-            
+
         elif checkFullFace(inputCube) == "left":
             result += "RRubFRRfBuRR"
             inputCube.rotate("RRubFRRfBuRR")
-            
+
         elif checkFullFace(inputCube) == "no face":
             result += "FFurLFFlRuFF"
             inputCube.rotate("FFurLFFlRuFF")
-    
-    return result    
+
+    return result
      
         
 def checkTopCorners(inputCube):  
@@ -216,5 +189,5 @@ def isFinishedCube(inputCube):
                     if(inputCube.get()[27] == inputCube.get()[31] and inputCube.get()[28] == inputCube.get()[31] and inputCube.get()[29] == inputCube.get()[31] and inputCube.get()[30] == inputCube.get()[31] and inputCube.get()[32] == inputCube.get()[31] and inputCube.get()[33] == inputCube.get()[31] and inputCube.get()[34] == inputCube.get()[31] and inputCube.get()[35] == inputCube.get()[31]):
                         return True
 
-    
+    return False
 

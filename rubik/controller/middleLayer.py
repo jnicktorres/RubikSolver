@@ -17,8 +17,10 @@ def solveMiddleLayer(theCube: Cube) -> str:
     
     for _ in range(0,4):
         
+        if(hasMiddle(inputCube) == True):
+            return result
         #Check to see if we have any incorrect tiles on right sides, and if we do correct them
-        
+    
         if not (inputCube.get()[5] in [inputCube.get()[4], inputCube.get()[40]]) and not (inputCube.get()[12] in [inputCube.get()[13],inputCube.get()[40]]):
             result+= 'URurufUF'
             inputCube.rotate('URurufUF')
@@ -37,6 +39,8 @@ def solveMiddleLayer(theCube: Cube) -> str:
         
         #Check to see if we have any incorrect tiles on left sides, and if we do correct them 
         
+        if(hasMiddle(inputCube) == True):
+            return result
         if not (inputCube.get()[3] in [inputCube.get()[4], inputCube.get()[40]]) and not (inputCube.get()[32] in [inputCube.get()[31],inputCube.get()[40]]):
             result += 'ulULUFuf'
             inputCube.rotate('ulULUFuf')        
