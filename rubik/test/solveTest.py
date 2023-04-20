@@ -707,5 +707,4 @@ class SolveTest(TestCase):
             self.assertEqual(result.get('cube')[40], result.get('cube')[42])
             self.assertEqual(result.get('cube')[40], result.get('cube')[43])
             self.assertEqual(result.get('cube')[40], result.get('cube')[44])    
-            print(dirs['solution'])   
 
