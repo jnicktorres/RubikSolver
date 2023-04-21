@@ -155,7 +155,7 @@ def solveUpperLayer(theCube: Cube) -> str:
 
     return result
      
-        
+# check to see if top corners step is complete        
 def checkTopCorners(inputCube):  
     if(inputCube.get()[FTL] == inputCube.get()[FMM] and inputCube.get()[FTR] == inputCube.get()[FMM]):
         if(inputCube.get()[RTL] == inputCube.get()[RMM] and inputCube.get()[RTR] == inputCube.get()[RMM]):
