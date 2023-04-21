@@ -577,8 +577,7 @@ class SolveTest(TestCase):
     
     def test320_solve_isFinishedCube4(self):
 
-            encodedCube = 'bgyobgywbrbbwrywrwrbwogrbggggoyobobgrryoywyrgoooywwwyr'
-            encodedCube = 'rorbbwbrbwbggrrwrgyrrwgbyyoygwwoowyybyroyybwgobogwggoo'
+            encodedCube = 'eEExEwHHxPeeeePEwEwewxwwPEPHEHHxHxwwxEPxPPEPxeeHxHPwHe'
             parms = {}
             parms['cube'] = encodedCube
             dirs = solve(parms)
