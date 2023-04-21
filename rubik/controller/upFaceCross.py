@@ -1,4 +1,4 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveUpCross(theCube: Cube) -> str:
@@ -19,15 +19,10 @@ def solveUpCross(theCube: Cube) -> str:
         return result
         
     
-    ## if no yellow top yellow tiles
+    ## if no top yellow tiles
     if noYellowPattern(inputCube) == True:
         result += 'FURurf'
-        inputCube._rotateF()
-        inputCube._rotateU()
-        inputCube._rotateR()
-        inputCube._rotateu()
-        inputCube._rotater()
-        inputCube._rotatef()
+        inputCube.rotate('FURurf')
         
     if crossPattern(inputCube) == True:
         return result
@@ -38,65 +33,33 @@ def solveUpCross(theCube: Cube) -> str:
         # Check if straight line pattern
         if straightLinePattern(inputCube) == "Vertical":     
             result += 'FURurf'
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
-           
+            inputCube.rotate('FURurf')
+            
         elif straightLinePattern(inputCube) == "Horizontal":      
             result += 'UFURurf'
-            inputCube._rotateU()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
-    
+            inputCube.rotate('UFURurf')
+            
         # check if we get Cross
         if crossPattern(inputCube) == True:
             return result
      
      
         #Check if we get double corner and middle tile pattern
-        if(doubleCornerPattern(inputCube) == "topleft"):
+        if(doubleCornerPattern(inputCube) == "top left"):           
             result += 'FURurf'
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
-        elif(doubleCornerPattern(inputCube) == "topright"):
+            inputCube.rotate('FURurf')
+            
+        elif(doubleCornerPattern(inputCube) == "top right"):
             result += 'uFURurf'
-            inputCube._rotateu()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
-        elif(doubleCornerPattern(inputCube) == "botright"):
+            inputCube.rotate('uFURurf')
+            
+        elif(doubleCornerPattern(inputCube) == "bottom right"):
             result += 'UUFURurf'
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
-        elif(doubleCornerPattern(inputCube) == "botleft"):
+            inputCube.rotate('UUFURurf')
+            
+        elif(doubleCornerPattern(inputCube) == "bottom left"):
             result += 'UFURurf'
-            inputCube._rotateU()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
+            inputCube.rotate('UFURurf')
             
         # check if we get Cross
         if crossPattern(inputCube) == True:
@@ -104,40 +67,19 @@ def solveUpCross(theCube: Cube) -> str:
             
         if singleYellowPattern(inputCube) == "top":
             result += 'FURurf'
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()
+            inputCube.rotate('FURurf')
+            
         elif singleYellowPattern(inputCube) == "right":
             result += 'uFURurf'
-            inputCube._rotateu()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()   
+            inputCube.rotate('uFURurf')  
+            
         elif singleYellowPattern(inputCube) == "bottom":
             result += 'UUFURurf'
-            inputCube._rotateU()
-            inputCube._rotateU()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef() 
+            inputCube.rotate('UUFURurf')
+            
         elif singleYellowPattern(inputCube) == "left":
             result += 'UFURurf'
-            inputCube._rotateU()
-            inputCube._rotateF()
-            inputCube._rotateU()
-            inputCube._rotateR()
-            inputCube._rotateu()
-            inputCube._rotater()
-            inputCube._rotatef()          
+            inputCube.rotate('UFURurf')         
                
         if crossPattern(inputCube) == True:
             return result                
@@ -146,40 +88,40 @@ def solveUpCross(theCube: Cube) -> str:
     return result      
 
 def straightLinePattern(inputCube):
-    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
+    if (inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM]):
         return "Vertical"
-    elif (inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40]):
+    elif (inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM]):
         return "Horizontal"
     else:
         return "No"
     
 def crossPattern(inputCube):
-    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and  inputCube.get()[43] == inputCube.get()[40]):
+    if (inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and  inputCube.get()[UBM] == inputCube.get()[UMM]):
         return True
 
 def doubleCornerPattern(inputCube):
-    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40]):
-        return "topleft"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40]):
-        return "topright"
-    elif(inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
-        return "botright"
-    elif(inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40]):
-        return "botleft"
+    if(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM]):
+        return "top left"
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM]):
+        return "top right"
+    elif(inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM]):
+        return "bottom right"
+    elif(inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM]):
+        return "bottom left"
     else:
         return "None"
     
 def singleYellowPattern(inputCube):
-    if inputCube.get()[37] == inputCube.get()[40]:
+    if inputCube.get()[UTM] == inputCube.get()[UMM]:
         return "top"
-    if inputCube.get()[39] == inputCube.get()[40]:
+    if inputCube.get()[UML] == inputCube.get()[UMM]:
         return "left"
-    if inputCube.get()[41] == inputCube.get()[40]:
+    if inputCube.get()[UMR] == inputCube.get()[UMM]:
         return "right"
-    if inputCube.get()[43] == inputCube.get()[40]:
-        return "bot"
+    if inputCube.get()[UBM] == inputCube.get()[UMM]:
+        return "bottom"
 
 def noYellowPattern(inputCube):
-    if (inputCube.get()[37] != inputCube.get()[40] and inputCube.get()[43] != inputCube.get()[40] and inputCube.get()[39] != inputCube.get()[40] and  inputCube.get()[41] != inputCube.get()[40]):
+    if (inputCube.get()[UTM] != inputCube.get()[UMM] and inputCube.get()[UBM] != inputCube.get()[UMM] and inputCube.get()[UML] != inputCube.get()[UMM] and  inputCube.get()[UMR] != inputCube.get()[UMM]):
         return True   
     return False 

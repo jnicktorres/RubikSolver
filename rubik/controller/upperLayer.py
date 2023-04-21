@@ -1,4 +1,4 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveUpperLayer(theCube: Cube) -> str:
