@@ -1,4 +1,4 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 
@@ -25,6 +25,7 @@ def solveUpSurface(theCube: Cube) -> str:
         
         # Check for cross pattern
         elif crossPattern(inputCube) == True:
+            # only rotate 4 times to see each side
             for _ in range(0,4):
                 result+='U'
                 inputCube._rotateU()
@@ -96,39 +97,39 @@ def solveUpSurface(theCube: Cube) -> str:
 # Local Methods to check for different patterns
 
 def crossPattern(inputCube):
-    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
+    if (inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTL] != inputCube.get()[UMM] and inputCube.get()[UTR] != inputCube.get()[UMM] and inputCube.get()[UBL] != inputCube.get()[UMM] and inputCube.get()[UBR] != inputCube.get()[UMM]):
         return True
     return False
 def hasUpperFacePattern(inputCube):
-    if (inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and  inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and  inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40]):
+    if (inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM] and  inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and  inputCube.get()[UBL] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM]):
         return True
     return False
 def fishPattern(inputCube):
-    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
+    if(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UTR] != inputCube.get()[UMM] and inputCube.get()[UBL] != inputCube.get()[UMM] and inputCube.get()[UBR] != inputCube.get()[UMM]):
         return "topleft"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM] and inputCube.get()[UTL] != inputCube.get()[UMM] and inputCube.get()[UBL] != inputCube.get()[UMM] and inputCube.get()[UBR] != inputCube.get()[UMM]):
         return "topright"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM] and inputCube.get()[UTL] != inputCube.get()[UMM] and inputCube.get()[UTR] != inputCube.get()[UMM] and inputCube.get()[UBL] != inputCube.get()[UMM]):
         return "botright"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBL] == inputCube.get()[UMM] and inputCube.get()[UTL] != inputCube.get()[UMM] and inputCube.get()[UTR] != inputCube.get()[UMM] and inputCube.get()[UBR] != inputCube.get()[UMM]):
         return "botleft"
     else:
         return "None"
     
 def treePattern(inputCube):
-    if(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40]):
+    if(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM]):
         return "up"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBL] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM]):
         return "down"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UBL] == inputCube.get()[UMM]):
         return "left"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM]):
         return "right"
     else:
         return "None"
     
 def doubleFishPattern(inputCube):
-    if (inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[36] == inputCube.get()[40] and inputCube.get()[44] == inputCube.get()[40] and inputCube.get()[38] != inputCube.get()[40] and inputCube.get()[42] != inputCube.get()[40]):
+    if (inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM] and inputCube.get()[UTR] != inputCube.get()[UMM] and inputCube.get()[UBL] != inputCube.get()[UMM]):
         return "leftdiagonal"
-    elif(inputCube.get()[37] == inputCube.get()[40] and inputCube.get()[39] == inputCube.get()[40] and inputCube.get()[41] == inputCube.get()[40] and inputCube.get()[43] == inputCube.get()[40] and inputCube.get()[38] == inputCube.get()[40] and inputCube.get()[42] == inputCube.get()[40] and inputCube.get()[36] != inputCube.get()[40] and inputCube.get()[44] != inputCube.get()[40]):
+    elif(inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM] and inputCube.get()[UBL] == inputCube.get()[UMM] and inputCube.get()[UTL] != inputCube.get()[UMM] and inputCube.get()[UBR] != inputCube.get()[UMM]):
         return "rightdiagonal"
