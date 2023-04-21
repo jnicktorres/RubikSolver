@@ -52,9 +52,9 @@ def solve(parms):
             result['status'] = 'error: Invalid Unique Elements' 
             return result
         
-        for num in centers:
-            if theCube.get()[num] not in checkCenter.keys():
-                checkCenter[theCube.get()[num]] = 1
+        for tile in centers:
+            if theCube.get()[tile] not in checkCenter.keys():
+                checkCenter[theCube.get()[tile]] = 1
                 
         if len(checkCenter) != 6:
             result['status'] = 'error: Not Enough Unique Centers' 
