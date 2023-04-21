@@ -1,4 +1,4 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveMiddleLayer(theCube: Cube) -> str:
@@ -13,7 +13,7 @@ def solveMiddleLayer(theCube: Cube) -> str:
     inputCube = theCube
     result = ''
     
-    ######
+    ######  Iterate 4 times since thats how many times we have to rotate for a complete circle
     
     for _ in range(0,4):
         
@@ -21,19 +21,19 @@ def solveMiddleLayer(theCube: Cube) -> str:
             return result
         #Check to see if we have any incorrect tiles on right sides, and if we do correct them
     
-        if not (inputCube.get()[5] in [inputCube.get()[4], inputCube.get()[40]]) and not (inputCube.get()[12] in [inputCube.get()[13],inputCube.get()[40]]):
+        if not (inputCube.get()[FMR] in [inputCube.get()[FMM], inputCube.get()[UMM]]) and not (inputCube.get()[RML] in [inputCube.get()[RMM],inputCube.get()[UMM]]):
             result+= 'URurufUF'
             inputCube.rotate('URurufUF')
               
-        if not(inputCube.get()[14] in [inputCube.get()[13],inputCube.get()[40]]) and not (inputCube.get()[21] in [inputCube.get()[22], inputCube.get()[40]]):
+        if not(inputCube.get()[RMR] in [inputCube.get()[RMM],inputCube.get()[UMM]]) and not (inputCube.get()[BML] in [inputCube.get()[BMM], inputCube.get()[UMM]]):
             result += 'UBuburUR'
             inputCube.rotate('UBuburUR')
             
-        if not (inputCube.get()[23] in [inputCube.get()[22],inputCube.get()[40]]) and not (inputCube.get()[30] in [inputCube.get()[31], inputCube.get()[40]]):
+        if not (inputCube.get()[BMR] in [inputCube.get()[BMM],inputCube.get()[UMM]]) and not (inputCube.get()[LML] in [inputCube.get()[LMM], inputCube.get()[UMM]]):
             result += 'ULulubUB'
             inputCube.rotate('ULulubUB')
             
-        if not(inputCube.get()[32] in [inputCube.get()[31],inputCube.get()[40]]) and not (inputCube.get()[3] in [inputCube.get()[4],inputCube.get()[40]]):
+        if not(inputCube.get()[LMR] in [inputCube.get()[LMM],inputCube.get()[UMM]]) and not (inputCube.get()[FML] in [inputCube.get()[FMM],inputCube.get()[UMM]]):
             result += 'UFufulUL'
             inputCube.rotate('UFufulUL')
         
@@ -41,19 +41,19 @@ def solveMiddleLayer(theCube: Cube) -> str:
         
         if(hasMiddle(inputCube) == True):
             return result
-        if not (inputCube.get()[3] in [inputCube.get()[4], inputCube.get()[40]]) and not (inputCube.get()[32] in [inputCube.get()[31],inputCube.get()[40]]):
+        if not (inputCube.get()[FML] in [inputCube.get()[FMM], inputCube.get()[UMM]]) and not (inputCube.get()[LMR] in [inputCube.get()[LMM],inputCube.get()[UMM]]):
             result += 'ulULUFuf'
             inputCube.rotate('ulULUFuf')        
               
-        if not(inputCube.get()[12] in [inputCube.get()[13],inputCube.get()[40]]) and not (inputCube.get()[5] in [inputCube.get()[4], inputCube.get()[40]]):
+        if not(inputCube.get()[RML] in [inputCube.get()[RMM],inputCube.get()[UMM]]) and not (inputCube.get()[FMR] in [inputCube.get()[FMM], inputCube.get()[UMM]]):
             result += 'ufUFURur'
             inputCube.rotate('ufUFURur')  
             
-        if not (inputCube.get()[21] in [inputCube.get()[22],inputCube.get()[40]]) and not (inputCube.get()[14] in [inputCube.get()[13], inputCube.get()[40]]):
+        if not (inputCube.get()[BML] in [inputCube.get()[BMM],inputCube.get()[UMM]]) and not (inputCube.get()[RMR] in [inputCube.get()[RMM], inputCube.get()[UMM]]):
             result += 'urURUBub'
             inputCube.rotate('urURUBub') 
             
-        if not(inputCube.get()[30] in [inputCube.get()[31],inputCube.get()[40]]) and not (inputCube.get()[23] in [inputCube.get()[22],inputCube.get()[40]]):
+        if not(inputCube.get()[LML] in [inputCube.get()[LMM],inputCube.get()[UMM]]) and not (inputCube.get()[BMR] in [inputCube.get()[BMM],inputCube.get()[UMM]]):
             result += 'ubUBULul'
             inputCube.rotate('ubUBULul')       
         
@@ -66,38 +66,38 @@ def solveMiddleLayer(theCube: Cube) -> str:
         for _ in range (0,3):
             # Checks to see where we have matching face and top and rotate to move color to the side  of left
             #### Checks Front and left
-            if (inputCube.get()[1] == inputCube.get()[4]) and (inputCube.get()[43] == inputCube.get()[31]):
+            if (inputCube.get()[FTM] == inputCube.get()[FMM]) and (inputCube.get()[UBM] == inputCube.get()[LMM]):
                 result += 'ulULUFuf'
                 inputCube.rotate('ulULUFuf') 
                 
             ####Checks Right and front
-            if (inputCube.get()[10] == inputCube.get()[13]) and (inputCube.get()[41] == inputCube.get()[4]):
+            if (inputCube.get()[RTM] == inputCube.get()[RMM]) and (inputCube.get()[UMR] == inputCube.get()[FMM]):
                 result += 'ufUFURur'
                 inputCube.rotate('ufUFURur') 
             ####Checks Back and right 
-            if (inputCube.get()[19] == inputCube.get()[22]) and (inputCube.get()[37] == inputCube.get()[13]):
+            if (inputCube.get()[BTM] == inputCube.get()[BMM]) and (inputCube.get()[UTM] == inputCube.get()[RMM]):
                 result += 'urURUBub'
                 inputCube.rotate('urURUBub') 
             #checks left and back    
-            if (inputCube.get()[28] == inputCube.get()[31]) and (inputCube.get()[39] == inputCube.get()[22]):
+            if (inputCube.get()[LTM] == inputCube.get()[LMM]) and (inputCube.get()[UML] == inputCube.get()[BMM]):
                 result += 'ubUBULul'
                 inputCube.rotate('ubUBULul')
                 
             ######### check front top and upper bottom side and see if we rotate to right matching tile
             ## Checks front and right
-            if (inputCube.get()[1] == inputCube.get()[4]) and (inputCube.get()[43] == inputCube.get()[13]):
+            if (inputCube.get()[FTM] == inputCube.get()[FMM]) and (inputCube.get()[UBM] == inputCube.get()[RMM]):
                 result+= 'URurufUF'
                 inputCube.rotate('URurufUF')
             #checks right and back
-            if (inputCube.get()[10] == inputCube.get()[13]) and (inputCube.get()[41] == inputCube.get()[22]):
+            if (inputCube.get()[RTM] == inputCube.get()[RMM]) and (inputCube.get()[UMR] == inputCube.get()[BMM]):
                 result += 'UBuburUR'
                 inputCube.rotate('UBuburUR')
             #checks back and left
-            if (inputCube.get()[19] == inputCube.get()[22]) and (inputCube.get()[37] == inputCube.get()[31]):
+            if (inputCube.get()[BTM] == inputCube.get()[BMM]) and (inputCube.get()[UTM] == inputCube.get()[LMM]):
                 result += 'ULulubUB'
                 inputCube.rotate('ULulubUB')
             #checks left and front   
-            if (inputCube.get()[28] == inputCube.get()[31]) and (inputCube.get()[39] == inputCube.get()[4]):
+            if (inputCube.get()[LTM] == inputCube.get()[LMM]) and (inputCube.get()[UML] == inputCube.get()[FMM]):
                 result += 'UFufulUL'
                 inputCube.rotate('UFufulUL')  
             result += 'U'
@@ -109,10 +109,10 @@ def solveMiddleLayer(theCube: Cube) -> str:
 
 def hasMiddle(inputCube):
     #Do a check to see if we already have middle layer
-    if(inputCube.get()[45] == inputCube.get()[49] and inputCube.get()[46] == inputCube.get()[49] and inputCube.get()[47] == inputCube.get()[49] and inputCube.get()[48] == inputCube.get()[49] and inputCube.get()[50] == inputCube.get()[49] and inputCube.get()[51] == inputCube.get()[49] and inputCube.get()[52] == inputCube.get()[49] and inputCube.get()[53] == inputCube.get()[49]):
-        if(inputCube.get()[3] == inputCube.get()[4] and inputCube.get()[5] == inputCube.get()[4] and inputCube.get()[6] == inputCube.get()[4] and inputCube.get()[7] == inputCube.get()[4] and inputCube.get()[8] == inputCube.get()[4]):
-            if(inputCube.get()[12] == inputCube.get()[13] and inputCube.get()[14] == inputCube.get()[13] and inputCube.get()[15] == inputCube.get()[13] and inputCube.get()[16] == inputCube.get()[13] and inputCube.get()[17] == inputCube.get()[13]):
-                if(inputCube.get()[21] == inputCube.get()[22] and inputCube.get()[23] == inputCube.get()[22] and inputCube.get()[24] == inputCube.get()[22] and inputCube.get()[25] == inputCube.get()[22] and inputCube.get()[26] == inputCube.get()[22]):
-                    if(inputCube.get()[30] == inputCube.get()[31] and inputCube.get()[32] == inputCube.get()[31] and inputCube.get()[33] == inputCube.get()[31] and inputCube.get()[34] == inputCube.get()[31] and inputCube.get()[35] == inputCube.get()[31]):
+    if(inputCube.get()[DTL] == inputCube.get()[DMM] and inputCube.get()[DTM] == inputCube.get()[DMM] and inputCube.get()[DTR] == inputCube.get()[DMM] and inputCube.get()[DML] == inputCube.get()[DMM] and inputCube.get()[DMR] == inputCube.get()[DMM] and inputCube.get()[DBL] == inputCube.get()[DMM] and inputCube.get()[DBM] == inputCube.get()[DMM] and inputCube.get()[DBR] == inputCube.get()[DMM]):
+        if(inputCube.get()[FML] == inputCube.get()[FMM] and inputCube.get()[FMR] == inputCube.get()[FMM] and inputCube.get()[FBL] == inputCube.get()[FMM] and inputCube.get()[FBM] == inputCube.get()[FMM] and inputCube.get()[FBR] == inputCube.get()[FMM]):
+            if(inputCube.get()[RML] == inputCube.get()[RMM] and inputCube.get()[RMR] == inputCube.get()[RMM] and inputCube.get()[RBL] == inputCube.get()[RMM] and inputCube.get()[RBM] == inputCube.get()[RMM] and inputCube.get()[RBR] == inputCube.get()[RMM]):
+                if(inputCube.get()[BML] == inputCube.get()[BMM] and inputCube.get()[BMR] == inputCube.get()[BMM] and inputCube.get()[BBL] == inputCube.get()[BMM] and inputCube.get()[BBM] == inputCube.get()[BMM] and inputCube.get()[BBR] == inputCube.get()[BMM]):
+                    if(inputCube.get()[LML] == inputCube.get()[LMM] and inputCube.get()[LMR] == inputCube.get()[LMM] and inputCube.get()[LBL] == inputCube.get()[LMM] and inputCube.get()[LBM] == inputCube.get()[LMM] and inputCube.get()[LBR] == inputCube.get()[LMM]):
                         return True
     return False

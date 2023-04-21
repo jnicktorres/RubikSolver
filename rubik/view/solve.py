@@ -9,6 +9,7 @@ from rubik.model.cube import Cube
 import hashlib
 import random
 from ctypes.wintypes import WORD
+from rubik.model.constants import *
 
 def solve(parms):
     """Return rotates needed to solve input cube"""
@@ -23,7 +24,7 @@ def solve(parms):
    
     checkUnique = {}
     checkCenter = {}
-    centers = [4,13,22,31,40,49]
+    centers = [FMM,RMM,BMM,LMM,UMM,DMM]
     
     if parms.get('cube') == None: 
         result['status'] = 'error: Empty Cube'
@@ -83,7 +84,7 @@ def createIntegrityString(integrityCube, rotations):
     sha256Hash.update(wordToToken.encode())
     fullToken = sha256Hash.hexdigest()
     #getting all possible substrings of length 8 from fullToken
-    integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
+    integrityArray = [fullToken[currentPointer: nextPointer] for currentPointer in range(len(fullToken)) for nextPointer in range(currentPointer + 1, len(fullToken) + 1) if len(fullToken[currentPointer:nextPointer]) == 8]
     #pick random substring from array range 0 to 56
     randomNum = random.randrange(57)
     return integrityArray[randomNum]

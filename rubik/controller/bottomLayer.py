@@ -20,7 +20,7 @@ def solveBottomLayer(theCube: Cube) -> str:
     
     
     
-    ## start
+    ## start by iterating 4 times since thats how many it takes to circle completetly
     
     for _ in range(0,4):
         
