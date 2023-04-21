@@ -1,4 +1,4 @@
-import rubik.model.constants
+from rubik.model.constants import *
 from rubik.model.cube import Cube
 
 def solveUpperLayer(theCube: Cube) -> str:
@@ -12,115 +12,116 @@ def solveUpperLayer(theCube: Cube) -> str:
     #### Variables  
     inputCube = theCube
     result = ''
-    frontFace = inputCube.get()[4]
-    rightFace = inputCube.get()[13]
-    backFace = inputCube.get()[22]
-    leftFace = inputCube.get()[31]
-    currentColor = 4
+    frontFace = inputCube.get()[FMM]
+    rightFace = inputCube.get()[RMM]
+    backFace = inputCube.get()[BMM]
+    leftFace = inputCube.get()[LMM]
+    currentColor = FMM
     ######
     
     
     # Does the Top Corners Method *******************************
 
     while checkTopCorners(inputCube) == False:
-        if inputCube.get()[0] == inputCube.get()[2]:   
-            if inputCube.get()[0] == frontFace:
+        if inputCube.get()[FTL] == inputCube.get()[FTR]:   
+            if inputCube.get()[FTL] == frontFace:
                 result += "fUBuFUbBUbUBUUb"
                 inputCube.rotate("fUBuFUbBUbUBUUb") 
                  
-            elif inputCube.get()[0] == rightFace:
+            elif inputCube.get()[FTL] == rightFace:
                 result += "urULuRUlLUlULUUl"
                 inputCube._rotateu()
                 inputCube.rotate("rULuRUlLUlULUUl")  
                      
-            elif inputCube.get()[0] == backFace:
+            elif inputCube.get()[FTL] == backFace:
                 result += 'uubUFuBUfFUfUFUUf'
                 inputCube._rotateu() 
                 inputCube._rotateu() 
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                 
-            elif inputCube.get()[0] == leftFace:
+            elif inputCube.get()[FTL] == leftFace:
                 result += 'UlURuLUrRUrURUUr'
                 inputCube._rotateU() 
                 inputCube.rotate("lURuLUrRUrURUUr")
                 
         #Solving for Right Face                          
-        elif inputCube.get()[9] == inputCube.get()[11]:
-            if inputCube.get()[9] == frontFace:
+        elif inputCube.get()[RTL] == inputCube.get()[RTR]:
+            if inputCube.get()[RTL] == frontFace:
                 result += "UfUBuFUbBUbUBUUb"
                 inputCube._rotateU() 
                 inputCube.rotate("fUBuFUbBUbUBUUb")  
                 
-            elif inputCube.get()[9] == rightFace:
+            elif inputCube.get()[RTL] == rightFace:
                 result += "rULuRUlLUlULUUl"
                 inputCube.rotate("rULuRUlLUlULUUl")  
                 
-            elif inputCube.get()[9] == backFace:
+            elif inputCube.get()[RTL] == backFace:
                 result += 'ubUFuBUfFUfUFUUf'
                 inputCube._rotateu() 
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                 
-            elif inputCube.get()[9] == leftFace:
+            elif inputCube.get()[RTL] == leftFace:
                 result += 'uulURuLUrRUrURUUr'
                 inputCube._rotateu()
                 inputCube._rotateu()
                 inputCube.rotate("lURuLUrRUrURUUr")
                 
         #Solving for Back Face            
-        elif inputCube.get()[18] == inputCube.get()[20]:
-            if inputCube.get()[18] == frontFace:
+        elif inputCube.get()[BTL] == inputCube.get()[BTR]:
+            if inputCube.get()[BTL] == frontFace:
                 result += "uufUBuFUbBUbUBUUb"
                 inputCube._rotateu() 
                 inputCube._rotateu() 
                 inputCube.rotate("fUBuFUbBUbUBUUb") 
                     
-            elif inputCube.get()[18] == rightFace:
+            elif inputCube.get()[BTL] == rightFace:
                 result += 'UrULuRUlLUlULUUl'
                 inputCube._rotateU() 
                 inputCube.rotate("rULuRUlLUlULUUl")
                     
-            elif inputCube.get()[18] == backFace:
+            elif inputCube.get()[BTL] == backFace:
                 result += 'bUFuBUfFUfUFUUf'
                 inputCube.rotate('bUFuBUfFUfUFUUf')
                  
-            elif inputCube.get()[18] == leftFace:
+            elif inputCube.get()[BTL] == leftFace:
                 result += 'ulURuLUrRUrURUUr'
                 inputCube._rotateu()
                 inputCube.rotate("lURuLUrRUrURUUr")
         
         #Solving for left Face    
-        elif inputCube.get()[27] == inputCube.get()[29]:
-            if inputCube.get()[27] == frontFace:
+        elif inputCube.get()[LTL] == inputCube.get()[LTR]:
+            if inputCube.get()[LTL] == frontFace:
                 result += "ufUBuFUbBUbUBUUb"
                 inputCube._rotateu() 
                 inputCube.rotate("fUBuFUbBUbUBUUb")       
-            elif inputCube.get()[27] == rightFace:
+            elif inputCube.get()[LTL] == rightFace:
                 result += "uurULuRUlLUlULUUl"
                 inputCube._rotateu()   
                 inputCube._rotateu()
                 inputCube.rotate("rULuRUlLUlULUUl")      
-            elif inputCube.get()[27] == backFace:
+            elif inputCube.get()[LTL] == backFace:
                 result += 'bUFuBUfFUfUFUUf'
                 inputCube._rotateU() 
                 inputCube.rotate('bUFuBUfFUfUFUUf')
-            elif inputCube.get()[27] == leftFace:
+            elif inputCube.get()[LTL] == leftFace:
                 result += 'lURuLUrRUrURUUr'
                 inputCube.rotate("lURuLUrRUrURUUr")
         
         else:
             #if we have no matching pairs of corners, we line up a single corner and rotate
-            while(inputCube.get()[2] != inputCube.get()[currentColor]):
-                currentColor += 9
+            while(inputCube.get()[FTR] != inputCube.get()[currentColor]):
+                #Add RTL tiles to get next center
+                currentColor += RTL
                  
-            if currentColor == 4:
+            if currentColor == FMM:
                 result += "fUBuFUbBUbUBUUb"
                 inputCube.rotate("fUBuFUbBUbUBUUb") 
                 
-            elif currentColor == 13:
+            elif currentColor == RMM:
                 result += "rULuRUlLUlULUUl"
                 inputCube.rotate("rULuRUlLUlULUUl") 
             
-            elif currentColor == 22:
+            elif currentColor == BMM:
                 result += 'bUFuBUfFUfUFUUf'
                 inputCube.rotate('bUFuBUfFUfUFUUf')
             else:
@@ -156,38 +157,44 @@ def solveUpperLayer(theCube: Cube) -> str:
      
         
 def checkTopCorners(inputCube):  
-    if(inputCube.get()[0] == inputCube.get()[4] and inputCube.get()[2] == inputCube.get()[4]):
-        if(inputCube.get()[9] == inputCube.get()[13] and inputCube.get()[11] == inputCube.get()[13]):
-            if(inputCube.get()[18] == inputCube.get()[22] and inputCube.get()[20] == inputCube.get()[22]):
-                if(inputCube.get()[27] == inputCube.get()[31] and inputCube.get()[29] == inputCube.get()[31]):
+    if(inputCube.get()[FTL] == inputCube.get()[FMM] and inputCube.get()[FTR] == inputCube.get()[FMM]):
+        if(inputCube.get()[RTL] == inputCube.get()[RMM] and inputCube.get()[RTR] == inputCube.get()[RMM]):
+            if(inputCube.get()[BTL] == inputCube.get()[BMM] and inputCube.get()[BTR] == inputCube.get()[BMM]):
+                if(inputCube.get()[LTL] == inputCube.get()[LMM] and inputCube.get()[LTR] == inputCube.get()[LMM]):
                     return True
     return False
 
 # If we find full face, tell which direction it is
 def checkFullFace(inputCube):
-    frontFace = inputCube.get()[4]
-    rightFace = inputCube.get()[13]
-    backFace = inputCube.get()[22]
-    leftFace = inputCube.get()[31]
+    #Get colors of each face
+    frontFace = inputCube.get()[FMM]
+    rightFace = inputCube.get()[RMM]
+    backFace = inputCube.get()[BMM]
+    leftFace = inputCube.get()[LMM]
     
-    if (inputCube.get()[0] == frontFace and inputCube.get()[1] == frontFace and inputCube.get()[2] == frontFace):
+    if (inputCube.get()[FTL] == frontFace and inputCube.get()[FTM] == frontFace and inputCube.get()[FTR] == frontFace):
         return "front"
-    elif (inputCube.get()[9] == rightFace and inputCube.get()[10] == rightFace and inputCube.get()[11] == rightFace):
+    elif (inputCube.get()[RTL] == rightFace and inputCube.get()[RTM] == rightFace and inputCube.get()[RTR] == rightFace):
         return "right"
-    elif (inputCube.get()[18] == backFace and inputCube.get()[19] == backFace and inputCube.get()[20] == backFace):
+    elif (inputCube.get()[BTL] == backFace and inputCube.get()[BTM] == backFace and inputCube.get()[BTR] == backFace):
         return "back"
-    elif (inputCube.get()[27] == leftFace and inputCube.get()[28] == leftFace and inputCube.get()[29] == leftFace):
+    elif (inputCube.get()[LTL] == leftFace and inputCube.get()[LTM] == leftFace and inputCube.get()[LTR] == leftFace):
         return "left"
 
     return "no face"
 
+
+#this method just checks every tile to see if we have a solved cube
 def isFinishedCube(inputCube):
-    if(inputCube.get()[45] == inputCube.get()[49] and inputCube.get()[46] == inputCube.get()[49] and inputCube.get()[47] == inputCube.get()[49] and inputCube.get()[48] == inputCube.get()[49] and inputCube.get()[50] == inputCube.get()[49] and inputCube.get()[51] == inputCube.get()[49] and inputCube.get()[52] == inputCube.get()[49] and inputCube.get()[53] == inputCube.get()[49]):
-        if(inputCube.get()[0] == inputCube.get()[4] and inputCube.get()[1] == inputCube.get()[4] and inputCube.get()[2] == inputCube.get()[4]and inputCube.get()[3] == inputCube.get()[4] and inputCube.get()[5] == inputCube.get()[4] and inputCube.get()[6] == inputCube.get()[4] and inputCube.get()[7] == inputCube.get()[4] and inputCube.get()[8] == inputCube.get()[4]):
-            if(inputCube.get()[9] == inputCube.get()[13] and inputCube.get()[10] == inputCube.get()[13] and inputCube.get()[11] == inputCube.get()[13] and inputCube.get()[12] == inputCube.get()[13] and inputCube.get()[14] == inputCube.get()[13] and inputCube.get()[15] == inputCube.get()[13] and inputCube.get()[16] == inputCube.get()[13] and inputCube.get()[17] == inputCube.get()[13]):
-                if(inputCube.get()[18] == inputCube.get()[22] and inputCube.get()[19] == inputCube.get()[22] and inputCube.get()[20] == inputCube.get()[22] and inputCube.get()[21] == inputCube.get()[22] and inputCube.get()[23] == inputCube.get()[22] and inputCube.get()[24] == inputCube.get()[22] and inputCube.get()[25] == inputCube.get()[22] and inputCube.get()[26] == inputCube.get()[22]):
-                    if(inputCube.get()[27] == inputCube.get()[31] and inputCube.get()[28] == inputCube.get()[31] and inputCube.get()[29] == inputCube.get()[31] and inputCube.get()[30] == inputCube.get()[31] and inputCube.get()[32] == inputCube.get()[31] and inputCube.get()[33] == inputCube.get()[31] and inputCube.get()[34] == inputCube.get()[31] and inputCube.get()[35] == inputCube.get()[31]):
-                        return True
+    if(inputCube.get()[DTL] == inputCube.get()[DMM] and inputCube.get()[DTM] == inputCube.get()[DMM] and inputCube.get()[DTR] == inputCube.get()[DMM] and inputCube.get()[DML] == inputCube.get()[DMM] and inputCube.get()[DMR] == inputCube.get()[DMM] and inputCube.get()[DBL] == inputCube.get()[DMM] and inputCube.get()[DBM] == inputCube.get()[DMM] and inputCube.get()[DBR] == inputCube.get()[DMM]):
+        if(inputCube.get()[FTL] == inputCube.get()[FMM] and inputCube.get()[FTM] == inputCube.get()[FMM] and inputCube.get()[FTR] == inputCube.get()[FMM]and inputCube.get()[FML] == inputCube.get()[FMM] and inputCube.get()[FMR] == inputCube.get()[FMM] and inputCube.get()[FBL] == inputCube.get()[FMM] and inputCube.get()[FBM] == inputCube.get()[FMM] and inputCube.get()[FBR] == inputCube.get()[FMM]):
+            if(inputCube.get()[RTL] == inputCube.get()[RMM] and inputCube.get()[RTM] == inputCube.get()[RMM] and inputCube.get()[RTR] == inputCube.get()[RMM] and inputCube.get()[RML] == inputCube.get()[RMM] and inputCube.get()[RMR] == inputCube.get()[RMM] and inputCube.get()[RBL] == inputCube.get()[RMM] and inputCube.get()[RBM] == inputCube.get()[RMM] and inputCube.get()[RBR] == inputCube.get()[RMM]):
+                if(inputCube.get()[BTL] == inputCube.get()[BMM] and inputCube.get()[BTM] == inputCube.get()[BMM] and inputCube.get()[BTR] == inputCube.get()[BMM] and inputCube.get()[BML] == inputCube.get()[BMM] and inputCube.get()[BMR] == inputCube.get()[BMM] and inputCube.get()[BBL] == inputCube.get()[BMM] and inputCube.get()[BBM] == inputCube.get()[BMM] and inputCube.get()[BBR] == inputCube.get()[BMM]):
+                    if(inputCube.get()[LTL] == inputCube.get()[LMM] and inputCube.get()[LTM] == inputCube.get()[LMM] and inputCube.get()[LTR] == inputCube.get()[LMM] and inputCube.get()[LML] == inputCube.get()[LMM] and inputCube.get()[LMR] == inputCube.get()[LMM] and inputCube.get()[LBL] == inputCube.get()[LMM] and inputCube.get()[LBM] == inputCube.get()[LMM] and inputCube.get()[LBR] == inputCube.get()[LMM]):
+                        if(inputCube.get()[UTL] == inputCube.get()[UMM] and inputCube.get()[UTM] == inputCube.get()[UMM] and inputCube.get()[UTR] == inputCube.get()[UMM] and inputCube.get()[UML] == inputCube.get()[UMM] and inputCube.get()[UMR] == inputCube.get()[UMM] and inputCube.get()[UBL] == inputCube.get()[UMM] and inputCube.get()[UBM] == inputCube.get()[UMM] and inputCube.get()[UBR] == inputCube.get()[UMM]):
+                            return True
+                    
+                        
 
     return False
 
