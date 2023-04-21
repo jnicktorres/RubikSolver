@@ -84,7 +84,7 @@ def createIntegrityString(integrityCube, rotations):
     fullToken = sha256Hash.hexdigest()
     #getting all possible substrings of length 8 from fullToken
     integrityArray = [fullToken[i: j] for i in range(len(fullToken)) for j in range(i + 1, len(fullToken) + 1) if len(fullToken[i:j]) == 8]
-    #pick random substring from array 
+    #pick random substring from array range 0 to 56
     randomNum = random.randrange(57)
     return integrityArray[randomNum]
 
